@@ -15,11 +15,11 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        var tab_layout:TabLayout =findViewById(R.id.tab_layout)
+        val tab_layout:TabLayout =findViewById(R.id.tab_layout)
 
 
         tab_layout.setSelectedTabIndicatorColor(Color.WHITE)
-        tab_layout.setBackgroundColor(ContextCompat.getColor(this, com.google.android.material.R.color.design_dark_default_color_primary_dark))
+     //   tab_layout.setBackgroundColor(ContextCompat.getColor(this, com.google.android.material.R.color.design_dark_default_color_primary_dark))
         tab_layout.tabTextColors = ContextCompat.getColorStateList(this, android.R.color.white)
 
         val numberOfTabs = 3

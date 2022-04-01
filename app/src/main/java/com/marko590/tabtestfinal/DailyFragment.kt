@@ -14,7 +14,7 @@ class DailyFragment : Fragment() {
                               savedInstanceState: Bundle?): View? {
         val binding = DataBindingUtil.inflate<DailyFragmentBinding>(inflater,
             R.layout.daily_fragment,container,false)
-        binding.fragmentName.text="Daily"
+
         return binding.root
     }
 

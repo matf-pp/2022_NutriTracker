@@ -9,7 +9,7 @@
         android:id="@+id/tab_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/design_default_color_primary_dark"
+        android:background="@color/primaryDarkColor"
         app:tabMaxWidth="0dp"
         app:tabTextAppearance="?android:attr/textAppearanceMedium"
         app:textAllCaps="false" />
@@ -20,5 +20,6 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"/>
+
 
 </LinearLayout>
