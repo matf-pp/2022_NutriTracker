@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">NutriTracker</string>
+    <string name="kCalIntake">2000kCal</string>
 </resources>

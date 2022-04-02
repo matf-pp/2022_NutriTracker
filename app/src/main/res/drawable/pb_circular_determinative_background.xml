@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@android:id/progress">
+        <rotate android:toDegrees="120"
+            android:fromDegrees="120">
+            <shape android:shape="ring"
+
+                android:innerRadiusRatio="4"
+                android:useLevel="true"
+                android:thickness="30sp">
+
+                <solid android:color="@color/transparent"/>
+            </shape>
+
+        </rotate>
+    </item>
+</selector>
