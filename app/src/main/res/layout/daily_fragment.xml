@@ -1,21 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout >
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/white"
-    tools:context=".DailyFragment">
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <TextView
-        android:id="@+id/fragment_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        android:textSize="30sp"
-        android:text="1"
-        android:layout_gravity="center"/>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:padding="16sp"
+        tools:context=".DailyFragment">
 
-</FrameLayout>
+        <ProgressBar
+            android:id="@+id/pbCaloriesTracker"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="383dp"
+            android:layout_height="270dp"
+            android:layout_marginTop="4dp"
+            android:indeterminateOnly="false"
+            android:max="200"
+            android:progress="100"
+            android:progressDrawable="@drawable/pb_circular_determinative"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvCalorieRemain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/primaryDarkColor"
+            android:textSize="28sp"
+            app:layout_constraintBottom_toBottomOf="@+id/pbCaloriesTracker"
+            app:layout_constraintEnd_toEndOf="@+id/pbCaloriesTracker"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="@+id/pbCaloriesTracker"
+            app:layout_constraintTop_toTopOf="@+id/pbCaloriesTracker"
+            app:layout_constraintVertical_bias="0.441" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="117dp" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

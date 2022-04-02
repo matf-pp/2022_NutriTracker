@@ -15,6 +15,10 @@ class DailyFragment : Fragment() {
         val binding = DataBindingUtil.inflate<DailyFragmentBinding>(inflater,
             R.layout.daily_fragment,container,false)
 
+        val usrCalories = 2000
+        binding.tvCalorieRemain.text = "$usrCalories kCal"
+        binding.pbCaloriesTracker.progress = 80
+
         return binding.root
     }
 
