@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import com.marko590.tabtestfinal.databinding.DailyFragmentBinding
 
 
-
 class DailyFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
