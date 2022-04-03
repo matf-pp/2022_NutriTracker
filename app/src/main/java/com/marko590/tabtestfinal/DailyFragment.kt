@@ -1,4 +1,5 @@
 package com.marko590.tabtestfinal
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -17,7 +18,11 @@ class DailyFragment : Fragment() {
         binding.tvPercentage.text = binding.pbCaloriesTracker.progress.toString()
         binding.pbCaloriesTracker.progress = binding.pbCaloriesTracker.progress
 
-
+        binding.btnAdd.setOnClickListener {
+            Intent(context, UserInfoActivity::class.java).also {
+                startActivity(it)
+            }
+        }
         return binding.root
     }
 
