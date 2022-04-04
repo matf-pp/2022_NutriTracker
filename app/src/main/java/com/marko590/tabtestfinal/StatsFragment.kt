@@ -116,7 +116,18 @@ class StatsFragment : Fragment()  {
         entries.add(BarEntry(16f, 15f))
         entries.add(BarEntry(17f, 13f))
         entries.add(BarEntry(18f, 2f))
-
+        entries.add(BarEntry(19f, 15f))
+        entries.add(BarEntry(20f, 13f))
+        entries.add(BarEntry(21f, 2f))
+        entries.add(BarEntry(22f, 15f))
+        entries.add(BarEntry(23f, 13f))
+        entries.add(BarEntry(24f, 2f))
+        entries.add(BarEntry(25f, 15f))
+        entries.add(BarEntry(26f, 13f))
+        entries.add(BarEntry(27f, 2f))
+        entries.add(BarEntry(28f, 7f))
+        entries.add(BarEntry(29f, 20f))
+        entries.add(BarEntry(30f, 5f))
         val barDataSet = BarDataSet(entries, "")
         barDataSet.setColors(*ColorTemplate.COLORFUL_COLORS)
 
@@ -124,6 +135,12 @@ class StatsFragment : Fragment()  {
 
         barChart.data = data
 
+        barChart.resetZoom()
+        barChart.setVisibleXRange(30f,7f)
+        //
+        barChart.zoom(barChart.xChartMax/7,1f,0f,0f)
+        // move view to the current week
+        barChart.moveViewToX(barChart.xChartMax-7)
         barChart.invalidate()
     }
     private fun populateBarChart1(barChart: BarChart){
@@ -134,12 +151,21 @@ class StatsFragment : Fragment()  {
         entries.add(BarEntry(4f, 5f))
         entries.add(BarEntry(5f, 6f))
         entries.add(BarEntry(6f, 11f))
-
+        entries.add(BarEntry(7f, 6f))
+        entries.add(BarEntry(8f, 11f))
+        entries.add(BarEntry(9f, 6f))
+        entries.add(BarEntry(10f, 11f))
         val barDataSet = BarDataSet(entries, "")
         barDataSet.setColors(*ColorTemplate.COLORFUL_COLORS)
 
         val data = BarData(barDataSet)
+
         barChart.data = data
+        barChart.resetZoom()
+        barChart.setVisibleXRange(30f,7f)
+        barChart.zoom(barChart.xChartMax/7,1f,0f,0f)
+
+
         barChart.invalidate()
 
     }
