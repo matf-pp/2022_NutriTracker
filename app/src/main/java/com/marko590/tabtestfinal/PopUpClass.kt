@@ -65,7 +65,7 @@ class PopUpClass {
         picker.elevation=popUpView!!.resources.getDimension(com.google.android.material.R.dimen.m3_menu_elevation)
         picker.displayedValues=months
         picker.setOnValueChangedListener { picker, oldVal, newVal ->
-            popUpView!!.findViewById<TextView>(R.id.titleText).text= "Enter the month you want: ${months[newVal-1]}"
+            popUpView!!.findViewById<TextView>(R.id.titleText).text= "Enter the month you want:\n${months[newVal-1]}"
             currentChoice=newVal-1
 
         }

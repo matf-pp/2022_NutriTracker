@@ -25,9 +25,10 @@
                 android:layout_marginStart="32dp"
                 android:layout_marginBottom="40dp"
                 app:layout_constraintBottom_toTopOf="@+id/calorieChart"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                android:descendantFocusability="blocksDescendants" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/button1"
                 app:layout_constraintBottom_toTopOf="@+id/calorieChart"
                 android:layout_marginTop="25dp"
@@ -45,9 +46,9 @@
                 android:layout_marginRight="20dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/picker"
-                app:radius="500dp"/>
+                app:radius="10dp"/>
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/button2"
                 app:layout_constraintBottom_toTopOf="@+id/stepChart"
                 app:layout_constraintStart_toStartOf="@id/stepChart"

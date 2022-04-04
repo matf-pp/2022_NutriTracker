@@ -1,9 +1,14 @@
 package com.marko590.tabtestfinal
 
+import android.graphics.Color
+import android.graphics.LinearGradient
+import android.graphics.Paint
+import android.graphics.Shader
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.github.mikephil.charting.charts.BarChart
@@ -67,29 +72,38 @@ class StatsFragment : Fragment()  {
             val popUpClass = PopUpClass()
             popUpClass.showPopupWindow(v,"Enter the month you want")
         }
-
-
         return binding.root
     }
 
     private fun setupBarChart(barChart: BarChart){
+        //adjusting left y axis
         barChart.axisLeft.setDrawGridLines(true)
-        barChart.axisRight.setDrawGridLines(false)
+        barChart.axisLeft.setDrawLabels(false)
+        barChart.axisLeft.setDrawAxisLine(false)
 
-
-        barChart.axisLeft.maxWidth=4f
-        barChart.xAxis.setDrawGridLines(false)
-        barChart.xAxis.setDrawAxisLine(true)
-        barChart.axisRight.setDrawLabels(false)
-
-
+        //adjusting right y axis
         barChart.axisRight.isEnabled = false
+
+        //adjusting xAxis
+        barChart.xAxis.setDrawGridLines(false)
+        barChart.xAxis.setDrawAxisLine(false)
         barChart.xAxis.position=XAxis.XAxisPosition.BOTTOM
+        barChart.xAxis.setDrawLabels(true)
 
-
+        //misc customization
         barChart.legend.isEnabled = false
         barChart.description.isEnabled = false
 
+        //making a linear gradient
+        val mPaint: Paint = barChart.renderer.paintRender
+        mPaint.setShader(LinearGradient(
+            500f,
+            0f,
+            500f,
+            1100f,
+            ContextCompat.getColor(requireContext(),R.color.primaryDarkColor),
+            ContextCompat.getColor(requireContext(),R.color.secondaryLightColor),
+            Shader.TileMode.CLAMP))
 
         barChart.animateY(3000)
         barChart.invalidate()
@@ -128,7 +142,6 @@ class StatsFragment : Fragment()  {
         entries.add(BarEntry(29f, 20f))
         entries.add(BarEntry(30f, 5f))
         val barDataSet = BarDataSet(entries, "")
-        barDataSet.setColors(*ColorTemplate.COLORFUL_COLORS)
 
         val data = BarData(barDataSet)
 
@@ -136,7 +149,7 @@ class StatsFragment : Fragment()  {
 
         barChart.resetZoom()
         barChart.setVisibleXRange(30f,7f)
-        //
+        //zoom to the last recorded week
         barChart.zoom(barChart.xChartMax/7,1f,0f,0f)
         // move view to the current week
         barChart.moveViewToX(barChart.xChartMax-7)
@@ -144,7 +157,7 @@ class StatsFragment : Fragment()  {
     }
     private fun populateBarChart1(barChart: BarChart){
         val entries: ArrayList<BarEntry> = ArrayList()
-        entries.add(BarEntry(1f, 1f))
+        entries.add(BarEntry(1f, 1000f))
         entries.add(BarEntry(2f, 5f))
         entries.add(BarEntry(3f, 3f))
         entries.add(BarEntry(4f, 5f))
@@ -160,6 +173,7 @@ class StatsFragment : Fragment()  {
         val data = BarData(barDataSet)
 
         barChart.data = data
+
         barChart.resetZoom()
         barChart.setVisibleXRange(30f,7f)
         barChart.zoom(barChart.xChartMax/7,1f,0f,0f)

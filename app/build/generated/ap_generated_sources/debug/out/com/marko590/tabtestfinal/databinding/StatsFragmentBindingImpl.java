@@ -34,8 +34,8 @@ public class StatsFragmentBindingImpl extends StatsFragmentBinding  {
     }
     private StatsFragmentBindingImpl(androidx.databinding.DataBindingComponent bindingComponent, View root, Object[] bindings) {
         super(bindingComponent, root, 0
-            , (android.widget.Button) bindings[2]
-            , (android.widget.Button) bindings[4]
+            , (com.google.android.material.button.MaterialButton) bindings[2]
+            , (com.google.android.material.button.MaterialButton) bindings[4]
             , (com.marko590.tabtestfinal.RoundedBarChart) bindings[3]
             , (android.widget.NumberPicker) bindings[1]
             , (com.marko590.tabtestfinal.RoundedBarChart) bindings[5]
