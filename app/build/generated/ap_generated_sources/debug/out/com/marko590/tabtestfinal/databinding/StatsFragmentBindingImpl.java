@@ -14,15 +14,12 @@ public class StatsFragmentBindingImpl extends StatsFragmentBinding  {
     static {
         sIncludes = null;
         sViewsWithIds = new android.util.SparseIntArray();
-        sViewsWithIds.put(R.id.calorieChart, 1);
-        sViewsWithIds.put(R.id.stepChart, 2);
-        sViewsWithIds.put(R.id.textView, 3);
-        sViewsWithIds.put(R.id.button1, 4);
-        sViewsWithIds.put(R.id.button2, 5);
-        sViewsWithIds.put(R.id.button3, 6);
-        sViewsWithIds.put(R.id.button4, 7);
-        sViewsWithIds.put(R.id.picker, 8);
-        sViewsWithIds.put(R.id.textView3, 9);
+        sViewsWithIds.put(R.id.picker, 1);
+        sViewsWithIds.put(R.id.button1, 2);
+        sViewsWithIds.put(R.id.calorieChart, 3);
+        sViewsWithIds.put(R.id.button2, 4);
+        sViewsWithIds.put(R.id.stepChart, 5);
+        sViewsWithIds.put(R.id.textView3, 6);
     }
     // views
     @NonNull
@@ -33,19 +30,16 @@ public class StatsFragmentBindingImpl extends StatsFragmentBinding  {
     // Inverse Binding Event Handlers
 
     public StatsFragmentBindingImpl(@Nullable androidx.databinding.DataBindingComponent bindingComponent, @NonNull View root) {
-        this(bindingComponent, root, mapBindings(bindingComponent, root, 10, sIncludes, sViewsWithIds));
+        this(bindingComponent, root, mapBindings(bindingComponent, root, 7, sIncludes, sViewsWithIds));
     }
     private StatsFragmentBindingImpl(androidx.databinding.DataBindingComponent bindingComponent, View root, Object[] bindings) {
         super(bindingComponent, root, 0
+            , (android.widget.Button) bindings[2]
             , (android.widget.Button) bindings[4]
-            , (android.widget.Button) bindings[5]
-            , (android.widget.Button) bindings[6]
-            , (android.widget.Button) bindings[7]
-            , (com.github.mikephil.charting.charts.BarChart) bindings[1]
-            , (android.widget.NumberPicker) bindings[8]
-            , (com.github.mikephil.charting.charts.BarChart) bindings[2]
-            , (android.widget.TextView) bindings[3]
-            , (android.widget.TextView) bindings[9]
+            , (com.github.mikephil.charting.charts.BarChart) bindings[3]
+            , (android.widget.NumberPicker) bindings[1]
+            , (com.github.mikephil.charting.charts.BarChart) bindings[5]
+            , (android.widget.TextView) bindings[6]
             );
         this.mboundView0 = (android.widget.ScrollView) bindings[0];
         this.mboundView0.setTag(null);

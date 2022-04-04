@@ -18,64 +18,6 @@
             android:orientation="vertical"
             >
 
-            <com.github.mikephil.charting.charts.BarChart
-                android:id="@+id/calorieChart"
-                android:layout_width="300dp"
-                android:layout_height="300dp"
-                android:layout_marginStart="52dp"
-                android:layout_marginTop="92dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/picker" />
-
-            <com.github.mikephil.charting.charts.BarChart
-                android:id="@+id/stepChart"
-                android:layout_width="300dp"
-                android:layout_height="300dp"
-                android:layout_marginStart="52dp"
-                android:layout_marginTop="92dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/calorieChart" />
-
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="176dp"
-                android:layout_marginTop="180dp"
-                android:text="TextView"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/stepChart" />
-
-            <Button
-                android:id="@+id/button1"
-                app:layout_constraintTop_toBottomOf="@id/textView"
-                android:layout_marginTop="25dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Button" />
-
-            <Button
-                android:id="@+id/button2"
-                app:layout_constraintTop_toBottomOf="@id/button1"
-                android:layout_marginTop="25dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Button" />
-            <Button
-                android:id="@+id/button3"
-                app:layout_constraintTop_toBottomOf="@id/button2"
-                android:layout_marginTop="25dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Button" />
-            <Button
-                android:id="@+id/button4"
-                app:layout_constraintTop_toBottomOf="@id/button3"
-                android:layout_marginTop="25dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Button" />
-
             <NumberPicker
                 android:id="@+id/picker"
                 android:layout_width="wrap_content"
@@ -84,35 +26,54 @@
                 android:layout_marginBottom="40dp"
                 app:layout_constraintBottom_toTopOf="@+id/calorieChart"
                 app:layout_constraintStart_toStartOf="parent" />
- <!--
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/customerSpinnerLayout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="32dp"
-                android:layout_marginEnd="32dp"
-                android:hint="Customer Name"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/picker">
 
-                <androidx.appcompat.widget.AppCompatAutoCompleteTextView
-                    android:id="@+id/customerTextView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:clickable="true"
-                    tools:ignore="KeyboardInaccessibleWidget" />
-            </com.google.android.material.textfield.TextInputLayout>
--->
+            <Button
+                android:id="@+id/button1"
+                app:layout_constraintBottom_toTopOf="@+id/calorieChart"
+                android:layout_marginTop="25dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="@id/calorieChart"
+                android:text="Select a month" />
+
+            <com.github.mikephil.charting.charts.BarChart
+                android:id="@+id/calorieChart"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_marginTop="92dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/picker" />
+
+            <Button
+                android:id="@+id/button2"
+                app:layout_constraintBottom_toTopOf="@+id/stepChart"
+                app:layout_constraintStart_toStartOf="@id/stepChart"
+                android:layout_marginTop="25dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Select a month" />
+
+            <com.github.mikephil.charting.charts.BarChart
+                android:id="@+id/stepChart"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="92dp"
+                android:layout_marginBottom="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/calorieChart" />
+
+
             <TextView
                 android:id="@+id/textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="40dp"
                 android:layout_marginTop="80dp"
-                android:text="TextView"
+                android:text="123}"
                 app:layout_constraintStart_toEndOf="@+id/picker"
                 app:layout_constraintTop_toTopOf="parent" />
 

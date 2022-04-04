@@ -1,71 +1,44 @@
 package com.marko590.tabtestfinal
 
 import android.R
-import android.content.Context
 import android.os.Bundle
-import android.text.AutoText
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
-import android.widget.AutoCompleteTextView
-import android.widget.NumberPicker
+import android.widget.EditText
+import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.github.mikephil.charting.charts.BarChart
 import com.github.mikephil.charting.components.XAxis
-import com.github.mikephil.charting.data.*
+import com.github.mikephil.charting.data.BarData
+import com.github.mikephil.charting.data.BarDataSet
+import com.github.mikephil.charting.data.BarEntry
 import com.github.mikephil.charting.utils.ColorTemplate
 import com.marko590.tabtestfinal.databinding.StatsFragmentBinding
-import javax.xml.datatype.DatatypeConstants.MONTHS
 
 
-class StatsFragment : Fragment() {
+
+class StatsFragment : Fragment()  {
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         val binding = DataBindingUtil.inflate<StatsFragmentBinding>(inflater,
             com.marko590.tabtestfinal.R.layout.stats_fragment,container,false)
-        binding.textView.text="Statistics"
 
         val barChart =binding.calorieChart
-
         setupBarChart(barChart)
         populateBarChart(barChart)
 
         val barChart1=binding.stepChart
-        //hide grid lines
         setupBarChart(barChart1)
         populateBarChart(barChart1)
 
-        //draw chart
-
-
-
-
-        val MONTHS = arrayOf(
-            "January",
-            "Februrary",
-            "March",
-            "April",
-            "May",
-            "June",
-            "July",
-            "August",
-            "September",
-            "October",
-            "November",
-            "December"
-        )
-        //val customerAutoTV: AutoCompleteTextView = binding.customerTextView
-
-        //val adapter: ArrayAdapter<String> =
-        //    ArrayAdapter<String>(context as Context, R.layout.simple_spinner_item, MONTHS)
-        //draw chart
-        //customerAutoTV.setAdapter(adapter)
+        val months : Array<String> = requireContext().resources.getStringArray(com.marko590.tabtestfinal.R.array.months)
 
         binding.picker.minValue=1
         binding.picker.maxValue=12
-        binding.picker.displayedValues=MONTHS
+        binding.picker.displayedValues=months
         binding.picker.setOnValueChangedListener { picker, oldVal, newVal ->
 
             //Display the newly selected number to text view
@@ -80,31 +53,45 @@ class StatsFragment : Fragment() {
             }
         }
 
+
+        var calorieMonthButton= binding.button1
+
+        calorieMonthButton.setOnClickListener { v ->
+            val popUpClass = PopUpClass()
+            popUpClass.showPopupWindow(v,"Enter the month you want")
+
+        }
+
+        var stepMonthButton= binding.button2
+
+        stepMonthButton.setOnClickListener { v ->
+            val popUpClass = PopUpClass()
+            popUpClass.showPopupWindow(v,"Enter the month you want")
+        }
+
+
         return binding.root
     }
-
 
     private fun setupBarChart(barChart: BarChart){
         barChart.axisLeft.setDrawGridLines(true)
         barChart.axisRight.setDrawGridLines(false)
 
+
         barChart.axisLeft.maxWidth=4f
-        barChart.xAxis.setDrawGridLines(true)
+        barChart.xAxis.setDrawGridLines(false)
         barChart.xAxis.setDrawAxisLine(true)
         barChart.axisRight.setDrawLabels(false)
-        //remove right y-axis
+
+
         barChart.axisRight.isEnabled = false
         barChart.xAxis.position=XAxis.XAxisPosition.BOTTOM
 
-        //remove legend
+
         barChart.legend.isEnabled = false
-
-
-        //remove description label
         barChart.description.isEnabled = false
 
 
-        //add animation
         barChart.animateY(3000)
         barChart.invalidate()
     }
@@ -117,12 +104,26 @@ class StatsFragment : Fragment() {
         entries.add(BarEntry(4f, 15f))
         entries.add(BarEntry(5f, 13f))
         entries.add(BarEntry(6f, 2f))
+        entries.add(BarEntry(7f, 15f))
+        entries.add(BarEntry(8f, 13f))
+        entries.add(BarEntry(9f, 2f))
+        entries.add(BarEntry(10f, 15f))
+        entries.add(BarEntry(11f, 13f))
+        entries.add(BarEntry(12f, 2f))
+        entries.add(BarEntry(13f, 15f))
+        entries.add(BarEntry(14f, 13f))
+        entries.add(BarEntry(15f, 2f))
+        entries.add(BarEntry(16f, 15f))
+        entries.add(BarEntry(17f, 13f))
+        entries.add(BarEntry(18f, 2f))
 
         val barDataSet = BarDataSet(entries, "")
         barDataSet.setColors(*ColorTemplate.COLORFUL_COLORS)
 
         val data = BarData(barDataSet)
+
         barChart.data = data
+
         barChart.invalidate()
     }
     private fun populateBarChart1(barChart: BarChart){
@@ -140,6 +141,7 @@ class StatsFragment : Fragment() {
         val data = BarData(barDataSet)
         barChart.data = data
         barChart.invalidate()
+
     }
 }
 
