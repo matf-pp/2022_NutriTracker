@@ -36,7 +36,7 @@
                 app:layout_constraintStart_toStartOf="@id/calorieChart"
                 android:text="Select a month" />
 
-            <com.github.mikephil.charting.charts.BarChart
+            <com.marko590.tabtestfinal.RoundedBarChart
                 android:id="@+id/calorieChart"
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
@@ -44,7 +44,8 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/picker" />
+                app:layout_constraintTop_toBottomOf="@+id/picker"
+                app:radius="500dp"/>
 
             <Button
                 android:id="@+id/button2"
@@ -55,7 +56,7 @@
                 android:layout_height="wrap_content"
                 android:text="Select a month" />
 
-            <com.github.mikephil.charting.charts.BarChart
+            <com.marko590.tabtestfinal.RoundedBarChart
                 android:id="@+id/stepChart"
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
@@ -64,7 +65,8 @@
                 android:layout_marginTop="92dp"
                 android:layout_marginBottom="20dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/calorieChart" />
+                app:layout_constraintTop_toBottomOf="@id/calorieChart"
+                app:radius="10dp"/>
 
 
             <TextView

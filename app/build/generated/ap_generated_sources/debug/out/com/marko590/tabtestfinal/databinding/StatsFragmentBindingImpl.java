@@ -36,9 +36,9 @@ public class StatsFragmentBindingImpl extends StatsFragmentBinding  {
         super(bindingComponent, root, 0
             , (android.widget.Button) bindings[2]
             , (android.widget.Button) bindings[4]
-            , (com.github.mikephil.charting.charts.BarChart) bindings[3]
+            , (com.marko590.tabtestfinal.RoundedBarChart) bindings[3]
             , (android.widget.NumberPicker) bindings[1]
-            , (com.github.mikephil.charting.charts.BarChart) bindings[5]
+            , (com.marko590.tabtestfinal.RoundedBarChart) bindings[5]
             , (android.widget.TextView) bindings[6]
             );
         this.mboundView0 = (android.widget.ScrollView) bindings[0];

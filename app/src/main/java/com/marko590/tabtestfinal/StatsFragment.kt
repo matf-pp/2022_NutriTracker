@@ -1,12 +1,9 @@
 package com.marko590.tabtestfinal
 
-import android.R
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
-import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.github.mikephil.charting.charts.BarChart
@@ -18,7 +15,6 @@ import com.github.mikephil.charting.utils.ColorTemplate
 import com.marko590.tabtestfinal.databinding.StatsFragmentBinding
 
 
-
 class StatsFragment : Fragment()  {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -26,13 +22,15 @@ class StatsFragment : Fragment()  {
         val binding = DataBindingUtil.inflate<StatsFragmentBinding>(inflater,
             com.marko590.tabtestfinal.R.layout.stats_fragment,container,false)
 
-        val barChart =binding.calorieChart
-        setupBarChart(barChart)
-        populateBarChart(barChart)
+        val calorieChart =binding.calorieChart
+        setupBarChart(calorieChart)
+        populateBarChart(calorieChart)
+        calorieChart.axisLeft.axisMinimum=0f
 
-        val barChart1=binding.stepChart
-        setupBarChart(barChart1)
-        populateBarChart(barChart1)
+        val stepChart=binding.stepChart
+        setupBarChart(stepChart)
+        populateBarChart(stepChart)
+        stepChart.axisLeft.axisMinimum=0f
 
         val months : Array<String> = requireContext().resources.getStringArray(com.marko590.tabtestfinal.R.array.months)
 
@@ -45,8 +43,8 @@ class StatsFragment : Fragment()  {
             binding.textView3.text = "Selected Value : $newVal from $oldVal"
 
             when (newVal%2) {
-                0 -> populateBarChart(barChart)
-                1 -> populateBarChart1(barChart)
+                0 -> populateBarChart(calorieChart)
+                1 -> populateBarChart1(calorieChart)
                 else -> {
                     print("x is neither 1 nor 2")
                 }
@@ -61,6 +59,7 @@ class StatsFragment : Fragment()  {
             popUpClass.showPopupWindow(v,"Enter the month you want")
 
         }
+
 
         var stepMonthButton= binding.button2
 
