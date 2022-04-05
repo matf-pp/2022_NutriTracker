@@ -27,18 +27,23 @@ class StatsFragment : Fragment()  {
         val binding = DataBindingUtil.inflate<StatsFragmentBinding>(inflater,
             com.marko590.tabtestfinal.R.layout.stats_fragment,container,false)
 
+        //Setup the bar chart for calorie intake
         val calorieChart =binding.calorieChart
         setupBarChart(calorieChart)
         populateBarChart(calorieChart)
         calorieChart.axisLeft.axisMinimum=0f
 
+
+        //Setup the bar chart for steps
         val stepChart=binding.stepChart
         setupBarChart(stepChart)
         populateBarChart(stepChart)
         stepChart.axisLeft.axisMinimum=0f
 
+        //Fetch array of months from resources
         val months : Array<String> = requireContext().resources.getStringArray(com.marko590.tabtestfinal.R.array.months)
 
+        //Put the month strings into the picker
         binding.picker.minValue=1
         binding.picker.maxValue=12
         binding.picker.displayedValues=months
@@ -56,18 +61,17 @@ class StatsFragment : Fragment()  {
             }
         }
 
-
         var calorieMonthButton= binding.button1
 
+        //Show popup window on button click
         calorieMonthButton.setOnClickListener { v ->
             val popUpClass = PopUpClass()
             popUpClass.showPopupWindow(v,"Enter the month you want")
-
         }
-
 
         var stepMonthButton= binding.button2
 
+        //Show popup window on button click
         stepMonthButton.setOnClickListener { v ->
             val popUpClass = PopUpClass()
             popUpClass.showPopupWindow(v,"Enter the month you want")
@@ -111,6 +115,7 @@ class StatsFragment : Fragment()  {
 
     private fun populateBarChart(barChart: BarChart){
         val entries: ArrayList<BarEntry> = ArrayList()
+        //mocked data
         entries.add(BarEntry(1f, 4f))
         entries.add(BarEntry(2f, 10f))
         entries.add(BarEntry(3f, 2f))
@@ -147,12 +152,18 @@ class StatsFragment : Fragment()  {
 
         barChart.data = data
 
+        //clean up the zoom levels
         barChart.resetZoom()
+
+        //make the minimum horizontal zoom be 7 units, i.e. 7 days
         barChart.setVisibleXRange(30f,7f)
+
         //zoom to the last recorded week
         barChart.zoom(barChart.xChartMax/7,1f,0f,0f)
+
         // move view to the current week
         barChart.moveViewToX(barChart.xChartMax-7)
+
         barChart.invalidate()
     }
     private fun populateBarChart1(barChart: BarChart){
@@ -178,9 +189,7 @@ class StatsFragment : Fragment()  {
         barChart.setVisibleXRange(30f,7f)
         barChart.zoom(barChart.xChartMax/7,1f,0f,0f)
 
-
         barChart.invalidate()
-
     }
 }
 

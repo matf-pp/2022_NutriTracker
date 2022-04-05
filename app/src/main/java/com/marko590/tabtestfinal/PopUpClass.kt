@@ -12,7 +12,6 @@ import android.view.animation.AnimationUtils
 import android.widget.*
 import org.w3c.dom.Text
 
-
 class PopUpClass {
     //PopupWindow display method
     var popUpView : View?=null
@@ -32,13 +31,13 @@ class PopUpClass {
 
         popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0)
 
-
         val titleText = popUpView!!.findViewById<TextView>(R.id.titleText)
         titleText.setText(msg)
 
         val buttonEdit = popUpView!!.findViewById<Button>(R.id.messageButton)
         popupWindow.setBackgroundDrawable(null)
 
+        //Display button listener
         buttonEdit.setOnClickListener {
             val months : Array<String> =popUpView!!.context.resources.getStringArray(R.array.months)
             Toast.makeText(view.context, "You have selected ${months[currentChoice]}", Toast.LENGTH_SHORT).show()
@@ -51,11 +50,7 @@ class PopUpClass {
         closeButton.setOnClickListener {
             popupWindow.dismiss()
         }
-
-
-
     }
-
 
     fun setUpPicker(picker: NumberPicker){
         val months : Array<String> =popUpView!!.context.resources.getStringArray(R.array.months)
@@ -67,7 +62,6 @@ class PopUpClass {
         picker.setOnValueChangedListener { picker, oldVal, newVal ->
             popUpView!!.findViewById<TextView>(R.id.titleText).text= "Enter the month you want:\n${months[newVal-1]}"
             currentChoice=newVal-1
-
         }
     }
 }
