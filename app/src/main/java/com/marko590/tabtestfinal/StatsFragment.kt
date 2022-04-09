@@ -1,16 +1,24 @@
 package com.marko590.tabtestfinal
 
+import android.content.Context
 import android.graphics.Color
 import android.graphics.LinearGradient
 import android.graphics.Paint
 import android.graphics.Shader
-import android.os.Bundle
+import android.graphics.drawable.ColorDrawable
+import android.icu.util.TimeUnit
+import android.os.*
+import android.util.Log
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.Animation
+import android.view.animation.TranslateAnimation
+import android.widget.*
+import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.Fragment
 import com.github.mikephil.charting.charts.BarChart
 import com.github.mikephil.charting.components.XAxis
 import com.github.mikephil.charting.data.BarData
@@ -18,69 +26,123 @@ import com.github.mikephil.charting.data.BarDataSet
 import com.github.mikephil.charting.data.BarEntry
 import com.github.mikephil.charting.utils.ColorTemplate
 import com.marko590.tabtestfinal.databinding.StatsFragmentBinding
+import kotlinx.coroutines.*
 
 
-class StatsFragment : Fragment()  {
+import java.util.*
+import kotlin.time.DurationUnit
 
+
+class StatsFragment : androidx.fragment.app.Fragment()  {
+
+    var calorieChart : RoundedBarChart?=null
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        val binding = DataBindingUtil.inflate<StatsFragmentBinding>(inflater,
-            com.marko590.tabtestfinal.R.layout.stats_fragment,container,false)
+        val binding = DataBindingUtil.inflate<StatsFragmentBinding>(
+            inflater,
+            com.marko590.tabtestfinal.R.layout.stats_fragment, container, false
+        )
 
         //Setup the bar chart for calorie intake
-        val calorieChart =binding.calorieChart
-        setupBarChart(calorieChart)
-        populateBarChart(calorieChart)
-        calorieChart.axisLeft.axisMinimum=0f
-
+        calorieChart = binding.calorieChart
+        setupBarChart(calorieChart!!)
+        populateBarChart(calorieChart!!)
+        calorieChart!!.axisLeft.axisMinimum = 0f
 
         //Setup the bar chart for steps
-        val stepChart=binding.stepChart
+        val stepChart = binding.stepChart
         setupBarChart(stepChart)
         populateBarChart(stepChart)
-        stepChart.axisLeft.axisMinimum=0f
+
+        stepChart.axisLeft.axisMinimum = 0f
 
         //Fetch array of months from resources
-        val months : Array<String> = requireContext().resources.getStringArray(com.marko590.tabtestfinal.R.array.months)
+        val months: Array<String> =
+            requireContext().resources.getStringArray(com.marko590.tabtestfinal.R.array.months)
 
-        //Put the month strings into the picker
-        binding.picker.minValue=1
-        binding.picker.maxValue=12
-        binding.picker.displayedValues=months
-        binding.picker.setOnValueChangedListener { picker, oldVal, newVal ->
-
-            //Display the newly selected number to text view
-            binding.textView3.text = "Selected Value : $newVal from $oldVal"
-
-            when (newVal%2) {
-                0 -> populateBarChart(calorieChart)
-                1 -> populateBarChart1(calorieChart)
-                else -> {
-                    print("x is neither 1 nor 2")
-                }
-            }
-        }
-
-        var calorieMonthButton= binding.button1
+        var calorieMonthButton = binding.button1
 
         //Show popup window on button click
         calorieMonthButton.setOnClickListener { v ->
-            val popUpClass = PopUpClass()
-            popUpClass.showPopupWindow(v,"Enter the month you want")
+            showPopupWindow(inflater,binding,calorieChart!!)
         }
 
         var stepMonthButton= binding.button2
 
         //Show popup window on button click
         stepMonthButton.setOnClickListener { v ->
-            val popUpClass = PopUpClass()
-            popUpClass.showPopupWindow(v,"Enter the month you want")
+            showPopupWindow(inflater,binding,stepChart!!)
         }
         return binding.root
     }
+    fun showPopupWindow(inflater: LayoutInflater,binding: StatsFragmentBinding,barChart: BarChart){
 
-    private fun setupBarChart(barChart: BarChart){
+        // Inflate the popup window layout
+        val popupView: View =
+            inflater.inflate(com.marko590.tabtestfinal.R.layout.popup_view_layout, null)
+
+        // Make a popup window using the inflated view
+        val popupWindow = PopupWindow(popupView, LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT, true)
+
+        // Set elevation of the popup
+        popupWindow.setBackgroundDrawable(ColorDrawable(Color.WHITE));
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            popupWindow.setElevation(30f);
+        }
+
+        popupView.findViewById<CardView>(com.marko590.tabtestfinal.R.id.cardView).setBackgroundResource(com.marko590.tabtestfinal.R.drawable.pu_background1)
+        val popupHandler: ChartPopUpHandler= ChartPopUpHandler(popupWindow,popupView)
+        popupHandler.setup()
+
+        val titleText =
+            popupView.findViewById<TextView>(com.marko590.tabtestfinal.R.id.titleText)
+
+
+        val buttonEdit =
+            popupView.findViewById<Button>(com.marko590.tabtestfinal.R.id.messageButton)
+        popupWindow.setBackgroundDrawable(null)
+
+        val closeButton=
+            popupView.findViewById<TextView>(com.marko590.tabtestfinal.R.id.cancelButton)
+
+
+        //Set event listener for the close button
+        closeButton.setOnClickListener{
+
+            popupView.animate().translationX(1600f)
+
+
+        }
+
+        //Display button listener
+        buttonEdit.setOnClickListener{
+            // Fetch month array from resources
+            val months: Array<String> =
+                popupView.context.resources.getStringArray(com.marko590.tabtestfinal.R.array.months)
+
+            // Make toast message for the selected month
+            Toast.makeText(
+                requireView().context,
+                "You have selected ${months[popupHandler.currentChoice]}",
+                Toast.LENGTH_SHORT
+            ).show()
+
+
+            // Mocked data changing, need to replace
+            when (popupHandler.currentChoice % 2) {
+                0 -> populateBarChart(barChart!!)
+                1 -> populateBarChart1(barChart!!)
+                else -> {
+                    print("x is neither 1 nor 2")
+                }
+            }
+            popupWindow.dismiss()
+        }
+        popupWindow.showAtLocation(view, Gravity.BOTTOM, 0, 0)
+    }
+    private fun setupBarChart(barChart: RoundedBarChart){
         //adjusting left y axis
+
         barChart.axisLeft.setDrawGridLines(true)
         barChart.axisLeft.setDrawLabels(false)
         barChart.axisLeft.setDrawAxisLine(false)
@@ -105,9 +167,16 @@ class StatsFragment : Fragment()  {
             0f,
             500f,
             1100f,
-            ContextCompat.getColor(requireContext(),R.color.primaryDarkColor),
-            ContextCompat.getColor(requireContext(),R.color.secondaryLightColor),
-            Shader.TileMode.CLAMP))
+            intArrayOf
+                (
+                ContextCompat.getColor(requireContext(),com.marko590.tabtestfinal.R.color.primaryDarkColor) ,
+                ContextCompat.getColor(requireContext(),com.marko590.tabtestfinal.R.color.primaryColor),
+                ContextCompat.getColor(requireContext(),com.marko590.tabtestfinal.R.color.secondaryLightColor)
+                ),
+            floatArrayOf(0f,0.4f,1f),
+            Shader.TileMode.CLAMP
+            )
+        )
 
         barChart.animateY(3000)
         barChart.invalidate()
@@ -161,6 +230,8 @@ class StatsFragment : Fragment()  {
         //zoom to the last recorded week
         barChart.zoom(barChart.xChartMax/7,1f,0f,0f)
 
+        val xAxis = barChart.xAxis
+        xAxis.labelRotationAngle = -45f
         // move view to the current week
         barChart.moveViewToX(barChart.xChartMax-7)
 
@@ -168,7 +239,7 @@ class StatsFragment : Fragment()  {
     }
     private fun populateBarChart1(barChart: BarChart){
         val entries: ArrayList<BarEntry> = ArrayList()
-        entries.add(BarEntry(1f, 1000f))
+        entries.add(BarEntry(1f, 10f))
         entries.add(BarEntry(2f, 5f))
         entries.add(BarEntry(3f, 3f))
         entries.add(BarEntry(4f, 5f))
@@ -191,6 +262,7 @@ class StatsFragment : Fragment()  {
 
         barChart.invalidate()
     }
+
 }
 
 

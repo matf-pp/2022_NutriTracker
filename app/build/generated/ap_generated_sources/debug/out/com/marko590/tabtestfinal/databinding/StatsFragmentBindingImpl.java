@@ -14,12 +14,12 @@ public class StatsFragmentBindingImpl extends StatsFragmentBinding  {
     static {
         sIncludes = null;
         sViewsWithIds = new android.util.SparseIntArray();
-        sViewsWithIds.put(R.id.picker, 1);
+        sViewsWithIds.put(R.id.calorieChartText, 1);
         sViewsWithIds.put(R.id.button1, 2);
         sViewsWithIds.put(R.id.calorieChart, 3);
-        sViewsWithIds.put(R.id.button2, 4);
-        sViewsWithIds.put(R.id.stepChart, 5);
-        sViewsWithIds.put(R.id.textView3, 6);
+        sViewsWithIds.put(R.id.stepChartText, 4);
+        sViewsWithIds.put(R.id.button2, 5);
+        sViewsWithIds.put(R.id.stepChart, 6);
     }
     // views
     @NonNull
@@ -35,11 +35,11 @@ public class StatsFragmentBindingImpl extends StatsFragmentBinding  {
     private StatsFragmentBindingImpl(androidx.databinding.DataBindingComponent bindingComponent, View root, Object[] bindings) {
         super(bindingComponent, root, 0
             , (com.google.android.material.button.MaterialButton) bindings[2]
-            , (com.google.android.material.button.MaterialButton) bindings[4]
+            , (com.google.android.material.button.MaterialButton) bindings[5]
             , (com.marko590.tabtestfinal.RoundedBarChart) bindings[3]
-            , (android.widget.NumberPicker) bindings[1]
-            , (com.marko590.tabtestfinal.RoundedBarChart) bindings[5]
-            , (android.widget.TextView) bindings[6]
+            , (android.widget.TextView) bindings[1]
+            , (com.marko590.tabtestfinal.RoundedBarChart) bindings[6]
+            , (android.widget.TextView) bindings[4]
             );
         this.mboundView0 = (android.widget.ScrollView) bindings[0];
         this.mboundView0.setTag(null);
