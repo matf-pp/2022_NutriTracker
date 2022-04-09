@@ -19,6 +19,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tvIntro">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/itName"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fontFamily="sans-serif-condensed"
@@ -40,6 +41,7 @@
         app:layout_constraintTop_toBottomOf="@+id/otfUserName">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/itHeight"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fontFamily="sans-serif-condensed"
@@ -61,6 +63,7 @@
         app:layout_constraintTop_toBottomOf="@+id/otfUserHeight">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/itWeight"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fontFamily="sans-serif-condensed"
@@ -82,6 +85,7 @@
         app:layout_constraintTop_toBottomOf="@+id/otfUserWeight">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/itAge"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fontFamily="sans-serif-condensed"
@@ -112,18 +116,20 @@
         app:layout_constraintBottom_toBottomOf="@+id/tvGender"
         app:layout_constraintStart_toEndOf="@+id/tvGender"
         app:layout_constraintTop_toTopOf="@+id/tvGender"
+        android:checkedButton="@id/rbWoman"
 
         >
 
         <RadioButton
+            android:id="@+id/rbWoman"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
             android:text="Woman"
             android:textColor="@color/secondaryTextColor"
             android:buttonTint="@color/primaryLightColor"/>
 
         <RadioButton
+            android:id="@+id/rbMan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Man"
