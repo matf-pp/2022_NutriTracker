@@ -16,4 +16,15 @@
         <item>November</item>
         <item>December</item>
     </string-array>
+
+    <string-array name="activityLevel">
+        <item>Sedentary (little or no exercise)</item>
+        <item>Lightly active (exercise 1–3 days/week)</item>
+        <item>Moderately active (exercise 3–5 days/week)</item>
+        <item>Active (exercise 6–7 days/week)</item>
+        <item>Very active (hard exercise 6–7 days/week)</item>
+    </string-array>
+
+    <string name="kCalProgress">%1d/%2dkCal</string>
+    <string name="nutrientsProgress">%1d/%2dg (%3d%%)</string>
 </resources>

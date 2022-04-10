@@ -6,12 +6,24 @@
     android:layout_height="match_parent"
     tools:context=".UserInfoActivity">
 
+    <TextView
+        android:id="@+id/tvActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:fontFamily="sans-serif-condensed"
+        android:text="How active are you?"
+        android:textColor="@color/primaryLightColor"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/tvGender"
+        app:layout_constraintTop_toBottomOf="@+id/tvGender" />
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/otfUserName"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="274dp"
         android:layout_height="65dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="20dp"
         android:hint="Enter your name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
@@ -33,7 +45,7 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="274dp"
         android:layout_height="65dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="20dp"
         android:hint="Enter your height (cm)"
         app:layout_constraintEnd_toEndOf="@+id/otfUserName"
         app:layout_constraintHorizontal_bias="0.0"
@@ -55,7 +67,7 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="274dp"
         android:layout_height="65dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="20dp"
         android:hint="Enter your weight (kg)"
         app:layout_constraintEnd_toEndOf="@+id/otfUserHeight"
         app:layout_constraintHorizontal_bias="0.0"
@@ -77,10 +89,10 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="274dp"
         android:layout_height="65dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="20dp"
         android:hint="Enter your age"
         app:layout_constraintEnd_toEndOf="@+id/otfUserWeight"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/otfUserWeight"
         app:layout_constraintTop_toBottomOf="@+id/otfUserWeight">
 
@@ -99,7 +111,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="48dp"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="28dp"
         android:fontFamily="sans-serif-condensed"
         android:text="Select your gender:"
         android:textColor="@color/primaryLightColor"
@@ -112,11 +124,11 @@
         android:layout_width="206dp"
         android:layout_height="36dp"
         android:layout_marginStart="8dp"
+        android:checkedButton="@id/rbWoman"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="@+id/tvGender"
         app:layout_constraintStart_toEndOf="@+id/tvGender"
         app:layout_constraintTop_toTopOf="@+id/tvGender"
-        android:checkedButton="@id/rbWoman"
 
         >
 
@@ -124,17 +136,17 @@
             android:id="@+id/rbWoman"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:buttonTint="@color/primaryLightColor"
             android:text="Woman"
-            android:textColor="@color/secondaryTextColor"
-            android:buttonTint="@color/primaryLightColor"/>
+            android:textColor="@color/secondaryTextColor" />
 
         <RadioButton
             android:id="@+id/rbMan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:buttonTint="@color/primaryLightColor"
             android:text="Man"
-            android:textColor="@color/secondaryTextColor"
-            android:buttonTint="@color/primaryLightColor"/>
+            android:textColor="@color/secondaryTextColor" />
     </RadioGroup>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -147,22 +159,35 @@
         app:backgroundTint="@color/primaryLightColor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@android:drawable/ic_media_play" />
+        app:srcCompat="@android:drawable/ic_media_play"
+        android:contentDescription="NEXT" />
 
     <TextView
         android:id="@+id/tvIntro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="36dp"
         android:fontFamily="sans-serif-condensed"
         android:text="Let's get to know you!"
         android:textColor="@color/primaryLightColor"
         android:textSize="37sp"
         android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/sActivity"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/spinner_background"
+        android:spinnerMode="dropdown"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvActivity" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,6 +3,7 @@ package com.marko590.tabtestfinal
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ArrayAdapter
 import kotlinx.android.synthetic.main.activity_user_info.*
 
 class UserInfoActivity : AppCompatActivity() {
@@ -10,6 +11,13 @@ class UserInfoActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_info)
 
+        // Creating spinner for activity level
+        val activityLevel = resources.getStringArray(R.array.activityLevel)
+        val spinner = sActivity
+        if(spinner != null){
+            val adapter = ArrayAdapter(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, activityLevel)
+            spinner.adapter = adapter
+        }
         val sharedPref = getSharedPreferences("UserInfoPref", Context.MODE_PRIVATE)
         val editor = sharedPref.edit()
 
@@ -42,13 +50,15 @@ class UserInfoActivity : AppCompatActivity() {
                     putInt("usrHeight", itHeight.text.toString().toInt())
                     putInt("usrWeight", itWeight.text.toString().toInt())
                     putInt("usrAge", itAge.text.toString().toInt())
-                    putBoolean("isWoman", rbWoman.isSelected)
-                    putBoolean("isMan", rbMan.isSelected)
+                    putBoolean("isWoman", rbWoman.isChecked)
+                    putBoolean("isMan", rbMan.isChecked)
+                    putString("activityLevel", sActivity.selectedItem.toString())
                     apply()
 
                 }
                 finish()
             }
         }
+
     }
 }
