@@ -1,4 +1,4 @@
-package com.marko590.tabtestfinal
+package com.marko590.tabtestfinal.stats
 
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
@@ -6,6 +6,7 @@ import android.os.Build
 import android.view.View
 import android.view.animation.AnimationUtils
 import android.widget.*
+import com.marko590.tabtestfinal.R
 
 class ChartPopUpHandler(private val popupWindow: PopupWindow, private val popupView: View) {
      var currentChoice=0
@@ -17,28 +18,30 @@ class ChartPopUpHandler(private val popupWindow: PopupWindow, private val popupV
         }
 
         val titleText =
-            popupView.findViewById<TextView>(com.marko590.tabtestfinal.R.id.titleText)
+            popupView.findViewById<TextView>(R.id.titleText)
 
         val buttonEdit =
-            popupView.findViewById<Button>(com.marko590.tabtestfinal.R.id.messageButton)
+            popupView.findViewById<Button>(R.id.messageButton)
             popupWindow.setBackgroundDrawable(ColorDrawable(Color.WHITE))
-            popupView!!.setAnimation(AnimationUtils.loadAnimation(this.popupView!!.context,R.anim.popupanim))
+            popupView!!.setAnimation(AnimationUtils.loadAnimation(this.popupView!!.context,
+                R.anim.popupanim
+            ))
 
         var picker =
-            popupView.findViewById<NumberPicker>(com.marko590.tabtestfinal.R.id.picker1)
+            popupView.findViewById<NumberPicker>(R.id.picker1)
 
         setUpPicker(picker)
     }
 
     fun setUpPicker(picker: NumberPicker) {
         val months: Array<String> =
-            popupView!!.context.resources.getStringArray(com.marko590.tabtestfinal.R.array.months)
+            popupView!!.context.resources.getStringArray(R.array.months)
         picker.minValue = 1
         picker.maxValue = 12
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             picker.textSize = 75f
         }
-        popupView.findViewById<NumberPicker>(com.marko590.tabtestfinal.R.id.picker1).setOnValueChangedListener { picker, oldVal, newVal ->
+        popupView.findViewById<NumberPicker>(R.id.picker1).setOnValueChangedListener { picker, oldVal, newVal ->
             currentChoice = newVal - 1
         }
         picker.elevation =

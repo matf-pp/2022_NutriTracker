@@ -1,4 +1,4 @@
-package com.marko590.tabtestfinal
+package com.marko590.tabtestfinal.stats
 
 
 import android.animation.Animator
@@ -24,8 +24,8 @@ import com.github.mikephil.charting.data.BarData
 import com.github.mikephil.charting.data.BarDataSet
 import com.github.mikephil.charting.data.BarEntry
 import com.github.mikephil.charting.utils.ColorTemplate
+import com.marko590.tabtestfinal.R
 import com.marko590.tabtestfinal.databinding.StatsFragmentBinding
-import kotlinx.coroutines.*
 import java.util.*
 
 
@@ -36,7 +36,7 @@ class StatsFragment : androidx.fragment.app.Fragment()  {
                               savedInstanceState: Bundle?): View? {
         val binding = DataBindingUtil.inflate<StatsFragmentBinding>(
             inflater,
-            com.marko590.tabtestfinal.R.layout.stats_fragment, container, false
+            R.layout.stats_fragment, container, false
         )
 
         //Setup the bar chart for calorie intake
@@ -54,7 +54,7 @@ class StatsFragment : androidx.fragment.app.Fragment()  {
 
         //Fetch array of months from resources
         val months: Array<String> =
-            requireContext().resources.getStringArray(com.marko590.tabtestfinal.R.array.months)
+            requireContext().resources.getStringArray(R.array.months)
 
         var calorieMonthButton = binding.button1
 
@@ -75,7 +75,7 @@ class StatsFragment : androidx.fragment.app.Fragment()  {
 
         // Inflate the popup window layout
         val popupView: View =
-            inflater.inflate(com.marko590.tabtestfinal.R.layout.popup_view_layout, null)
+            inflater.inflate(R.layout.popup_view_layout, null)
 
         // Make a popup window using the inflated view
         val popupWindow = PopupWindow(popupView, LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT, true)
@@ -86,20 +86,20 @@ class StatsFragment : androidx.fragment.app.Fragment()  {
             popupWindow.setElevation(30f);
         }
 
-        popupView.findViewById<CardView>(com.marko590.tabtestfinal.R.id.cardView).setBackgroundResource(com.marko590.tabtestfinal.R.drawable.pu_background1)
-        val popupHandler: ChartPopUpHandler= ChartPopUpHandler(popupWindow,popupView)
+        popupView.findViewById<CardView>(R.id.cardView).setBackgroundResource(R.drawable.pu_background1)
+        val popupHandler: ChartPopUpHandler = ChartPopUpHandler(popupWindow,popupView)
         popupHandler.setup()
 
         val titleText =
-            popupView.findViewById<TextView>(com.marko590.tabtestfinal.R.id.titleText)
+            popupView.findViewById<TextView>(R.id.titleText)
 
 
         val buttonEdit =
-            popupView.findViewById<Button>(com.marko590.tabtestfinal.R.id.messageButton)
+            popupView.findViewById<Button>(R.id.messageButton)
         popupWindow.setBackgroundDrawable(null)
 
         val closeButton=
-            popupView.findViewById<TextView>(com.marko590.tabtestfinal.R.id.cancelButton)
+            popupView.findViewById<TextView>(R.id.cancelButton)
 
 
         //Set event listener for the close button
@@ -128,7 +128,7 @@ class StatsFragment : androidx.fragment.app.Fragment()  {
         buttonEdit.setOnClickListener{
             // Fetch month array from resources
             val months: Array<String> =
-                popupView.context.resources.getStringArray(com.marko590.tabtestfinal.R.array.months)
+                popupView.context.resources.getStringArray(R.array.months)
 
             // Make toast message for the selected month
             Toast.makeText(
@@ -188,9 +188,9 @@ class StatsFragment : androidx.fragment.app.Fragment()  {
             1100f,
             intArrayOf
                 (
-                ContextCompat.getColor(requireContext(),com.marko590.tabtestfinal.R.color.primaryDarkColor) ,
-                ContextCompat.getColor(requireContext(),com.marko590.tabtestfinal.R.color.primaryColor),
-                ContextCompat.getColor(requireContext(),com.marko590.tabtestfinal.R.color.secondaryLightColor)
+                ContextCompat.getColor(requireContext(), R.color.primaryDarkColor) ,
+                ContextCompat.getColor(requireContext(), R.color.primaryColor),
+                ContextCompat.getColor(requireContext(), R.color.secondaryLightColor)
                 ),
             floatArrayOf(0f,0.4f,1f),
             Shader.TileMode.CLAMP

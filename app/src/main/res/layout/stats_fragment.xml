@@ -43,7 +43,7 @@
                 app:layout_constraintEnd_toEndOf="@id/calorieChart"
                 android:layout_marginTop="30dp"/>
 
-            <com.marko590.tabtestfinal.RoundedBarChart
+            <com.marko590.tabtestfinal.stats.RoundedBarChart
                 android:id="@+id/calorieChart"
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
@@ -84,7 +84,7 @@
 
                 app:layout_constraintEnd_toEndOf="@id/stepChart"/>
 
-            <com.marko590.tabtestfinal.RoundedBarChart
+            <com.marko590.tabtestfinal.stats.RoundedBarChart
                 android:id="@+id/stepChart"
                 android:layout_width="match_parent"
                 android:layout_height="300dp"

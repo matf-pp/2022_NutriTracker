@@ -1,4 +1,4 @@
-package com.marko590.tabtestfinal
+package com.marko590.tabtestfinal.stats
 
 import android.content.Context
 import android.graphics.Canvas
@@ -14,6 +14,7 @@ import com.github.mikephil.charting.interfaces.datasets.IBarDataSet
 import com.github.mikephil.charting.renderer.BarChartRenderer
 import com.github.mikephil.charting.utils.Utils
 import com.github.mikephil.charting.utils.ViewPortHandler
+import com.marko590.tabtestfinal.R
 
 
 class RoundedBarChart : BarChart {
