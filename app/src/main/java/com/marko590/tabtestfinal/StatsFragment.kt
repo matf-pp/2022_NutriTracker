@@ -1,20 +1,19 @@
 package com.marko590.tabtestfinal
 
+
+import android.animation.Animator
 import android.content.Context
+import android.content.SharedPreferences
 import android.graphics.Color
 import android.graphics.LinearGradient
 import android.graphics.Paint
 import android.graphics.Shader
 import android.graphics.drawable.ColorDrawable
-import android.icu.util.TimeUnit
 import android.os.*
-import android.util.Log
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.Animation
-import android.view.animation.TranslateAnimation
 import android.widget.*
 import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
@@ -27,10 +26,7 @@ import com.github.mikephil.charting.data.BarEntry
 import com.github.mikephil.charting.utils.ColorTemplate
 import com.marko590.tabtestfinal.databinding.StatsFragmentBinding
 import kotlinx.coroutines.*
-
-
 import java.util.*
-import kotlin.time.DurationUnit
 
 
 class StatsFragment : androidx.fragment.app.Fragment()  {
@@ -109,10 +105,24 @@ class StatsFragment : androidx.fragment.app.Fragment()  {
         //Set event listener for the close button
         closeButton.setOnClickListener{
 
-            popupView.animate().translationX(1600f)
 
+            var anim=popupView.animate().translationX(1600f)
+            anim.setListener(object : Animator.AnimatorListener {
+                override fun onAnimationStart(animation: Animator) {}
+                override fun onAnimationEnd(animation: Animator) {
+                    popupWindow.dismiss()
+                }
+                override fun onAnimationCancel(animation: Animator) {}
+                override fun onAnimationRepeat(animation: Animator) {}
+            })
 
         }
+
+
+        val sharedPref : SharedPreferences= requireContext().getSharedPreferences("UserInfoPref", Context.MODE_PRIVATE)
+        binding.calorieChartText.text=sharedPref.getString("usrName","No username entered")
+
+
 
         //Display button listener
         buttonEdit.setOnClickListener{
@@ -136,7 +146,16 @@ class StatsFragment : androidx.fragment.app.Fragment()  {
                     print("x is neither 1 nor 2")
                 }
             }
-            popupWindow.dismiss()
+            var anim=popupView.animate().translationX(1600f)
+            anim.setListener(object : Animator.AnimatorListener {
+                override fun onAnimationStart(animation: Animator) {}
+                override fun onAnimationEnd(animation: Animator) {
+                    popupWindow.dismiss()
+                }
+                override fun onAnimationCancel(animation: Animator) {}
+                override fun onAnimationRepeat(animation: Animator) {}
+            })
+
         }
         popupWindow.showAtLocation(view, Gravity.BOTTOM, 0, 0)
     }

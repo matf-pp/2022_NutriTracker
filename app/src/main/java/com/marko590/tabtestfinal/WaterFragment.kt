@@ -14,6 +14,9 @@ class WaterFragment : Fragment() {
         val binding = DataBindingUtil.inflate<WaterFragmentBinding>(inflater,
             R.layout.water_fragment,container,false)
 
+
+        binding
+
         return binding.root
     }
 }
