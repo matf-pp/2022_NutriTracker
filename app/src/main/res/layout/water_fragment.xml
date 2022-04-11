@@ -2,210 +2,236 @@
 <layout xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <ProgressBar
-            android:id="@+id/progressBar"
-            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-            android:layout_width="305dp"
-            android:layout_height="18dp"
-            android:layout_marginStart="40dp"
-            android:accessibilityLiveRegion="none"
-            android:contextClickable="false"
-            android:fadeScrollbars="true"
-            android:indeterminate="false"
-            android:progress="30"
-            android:progressDrawable="@drawable/pb_horizontal_bg"
-            android:rotationX="0"
-            android:visibility="visible"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="120dp" />
-
-        <Spinner
-            android:id="@+id/spinner"
-            android:layout_width="178dp"
-            android:layout_height="33dp"
-            android:layout_marginStart="43dp"
-            android:layout_marginEnd="237dp"
-            android:layout_marginBottom="44dp"
-            android:animationCache="false"
-            android:backgroundTint="@color/primaryColor"
-            android:visibility="visible"
-            app:layout_constraintBottom_toTopOf="@+id/progressBar"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.063"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView4"
-            app:layout_constraintVertical_bias="1.0"
-            tools:visibility="visible" />
-
-        <TextView
-
-            android:id="@+id/textView4"
-            android:layout_width="52dp"
-            android:layout_height="26dp"
-            android:layout_marginStart="43dp"
-            android:layout_marginTop="14dp"
-            android:fontFamily="sans-serif-condensed"
-            android:text="Water"
-            android:textAlignment="center"
-            android:textColor="@color/primaryColorTransparent"
-            android:textSize="20sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
-            android:fontFamily="sans-serif-condensed"
-            android:text="  600ml/2000ml"
-            android:textAlignment="center"
-            android:textColor="@color/primaryColorTransparent"
-            android:textStyle="italic"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/spinner" />
-
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-condensed"
-            android:text="(30%)"
-            android:textAlignment="center"
-            android:textColor="@color/primaryColorTransparent"
-            android:textStyle="italic"
-            tools:layout_editor_absoluteX="364dp"
-            tools:layout_editor_absoluteY="119dp" />
-
-        <TextView
-            android:id="@+id/textView7"
-            android:layout_width="212dp"
-            android:layout_height="49dp"
-            android:layout_marginStart="140dp"
-            android:layout_marginEnd="140dp"
-            android:fontFamily="sans-serif-condensed"
-            android:text="10 cups left!"
-            android:textAlignment="center"
-            android:textAllCaps="false"
-            android:textColor="@color/primaryDarkColor"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.456"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="138dp" />
-
-        <EditText
-            android:id="@+id/editTextTextPersonName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Set a goal"
-            android:textAlignment="center"
-            android:textColor="@color/transparent"
-            tools:layout_editor_absoluteX="100dp"
-            tools:layout_editor_absoluteY="324dp" />
-
-        <Button
-            android:id="@+id/button5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="43dp"
-            android:layout_marginEnd="140dp"
-            android:text="Remind me!"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="204dp" />
-
-        <TextView
-            android:id="@+id/textView8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="43dp"
-            android:fontFamily="sans-serif-condensed"
-            android:text="Steps"
-            android:textColor="@color/primaryColorTransparent"
-            android:textSize="20sp"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="279dp" />
-
-        <ProgressBar
-            android:id="@+id/progressBar2"
-            style="@style/Widget.AppCompat.ProgressBar"
-            android:layout_width="234dp"
-            android:layout_height="168dp"
-            android:layout_marginStart="100dp"
-            android:layout_marginEnd="100dp"
-            android:progress="20"
-            android:progressDrawable="@drawable/pb_horizontal_bg"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="415dp" />
-
-        <TextView
-            android:id="@+id/textView12"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="1000/6000"
-            android:textAlignment="center"
-            android:textColor="@color/primaryDarkColor"
-            android:textSize="26sp"
-            android:textStyle="bold|italic"
-            tools:layout_editor_absoluteX="209dp"
-            tools:layout_editor_absoluteY="464dp" />
-
-        <TextView
-            android:id="@+id/textView13"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="steps"
-            android:textColor="@color/primaryDarkColor"
-            android:textSize="16sp"
-            android:textStyle="bold|italic"
-            tools:layout_editor_absoluteX="345dp"
-            tools:layout_editor_absoluteY="477dp" />
-
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="104dp"
-            android:layout_height="98dp"
-            app:srcCompat="@drawable/foot"
-            tools:layout_editor_absoluteX="312dp"
-            tools:layout_editor_absoluteY="271dp" />
-
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="109dp"
-            android:layout_height="105dp"
-            app:srcCompat="@drawable/foot"
-            tools:layout_editor_absoluteX="-9dp"
-            tools:layout_editor_absoluteY="349dp" />
-
-        <Button
-            android:id="@+id/button6"
-            android:layout_width="46dp"
-            android:layout_height="44dp"
-            android:layout_marginStart="16dp"
-            android:text="+"
-            android:textAlignment="center"
-            android:textAllCaps="false"
-            android:textSize="18sp"
-            app:layout_constraintStart_toEndOf="@+id/spinner"
-            tools:layout_editor_absoluteY="40dp" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <TextView
-        android:id="@+id/textView"
+    <ScrollView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:layout_height="wrap_content">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ProgressBar
+                android:id="@+id/pbWaterIntake"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="234dp"
+                android:layout_height="15dp"
+                android:layout_marginTop="4dp"
+                android:accessibilityLiveRegion="none"
+                android:contextClickable="false"
+                android:fadeScrollbars="true"
+                android:indeterminate="false"
+                android:progress="30"
+                android:progressDrawable="@drawable/pb_horizontal_bg"
+                android:rotationX="0"
+                android:visibility="visible"
+                app:layout_constraintStart_toStartOf="@+id/tvWaterIntake"
+                app:layout_constraintTop_toBottomOf="@+id/tvWaterIntake" />
+
+            <Spinner
+                android:id="@+id/sGlasses"
+                android:layout_width="178dp"
+                android:layout_height="33dp"
+                android:layout_marginTop="8dp"
+                android:animationCache="false"
+                android:backgroundTint="@color/primaryColor"
+                android:visibility="visible"
+                app:layout_constraintStart_toStartOf="@+id/tvWater"
+                app:layout_constraintTop_toBottomOf="@+id/tvWater"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/tvWater"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Water"
+                android:textAlignment="center"
+                android:textColor="@color/primaryColorTransparent"
+                android:textSize="28sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvWaterIntake"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="600ml/2000ml"
+                android:textAlignment="center"
+                android:textColor="@color/primaryColorTransparent"
+                android:textStyle="italic"
+                app:layout_constraintStart_toStartOf="@+id/sGlasses"
+                app:layout_constraintTop_toBottomOf="@+id/sGlasses" />
+
+            <TextView
+                android:id="@+id/tvWaterProgress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="(30%)"
+                android:textAlignment="center"
+                android:textColor="@color/primaryColorTransparent"
+                android:textStyle="italic"
+                app:layout_constraintBottom_toBottomOf="@+id/pbWaterIntake"
+                app:layout_constraintStart_toEndOf="@+id/pbWaterIntake"
+                app:layout_constraintTop_toTopOf="@+id/pbWaterIntake"
+                app:layout_constraintVertical_bias="1.0" />
+
+            <TextView
+                android:id="@+id/tvWaterRemain"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="140dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="140dp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="10 cups left!"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@color/primaryColorTransparent"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.641"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/pbWaterIntake" />
+
+            <Button
+                android:id="@+id/btnReminder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Remind me!"
+                app:layout_constraintEnd_toEndOf="@+id/tvWaterRemain"
+                app:layout_constraintHorizontal_bias="0.511"
+                app:layout_constraintStart_toStartOf="@+id/tvWaterRemain"
+                app:layout_constraintTop_toBottomOf="@+id/tvWaterRemain" />
+
+            <TextView
+                android:id="@+id/tvSteps"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Steps"
+                android:textColor="@color/primaryColorTransparent"
+                android:textSize="28sp"
+                app:layout_constraintStart_toStartOf="@+id/pbWaterIntake"
+                app:layout_constraintTop_toBottomOf="@+id/btnReminder" />
+
+            <TextView
+                android:id="@+id/tvStepsProgress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="92dp"
+                android:text="1000/6000"
+                android:textAlignment="center"
+                android:textColor="@color/primaryColorTransparent"
+                android:textSize="26sp"
+                android:textStyle="italic|bold"
+                app:layout_constraintEnd_toEndOf="@+id/pbStepsTracker"
+                app:layout_constraintHorizontal_bias="0.508"
+                app:layout_constraintStart_toStartOf="@+id/pbStepsTracker"
+                app:layout_constraintTop_toTopOf="@+id/pbStepsTracker" />
+
+            <TextView
+                android:id="@+id/tvSteps2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Steps"
+                android:textColor="@color/primaryColorTransparent"
+                android:textSize="28sp"
+                app:layout_constraintEnd_toEndOf="@+id/tvStepsProgress"
+                app:layout_constraintHorizontal_bias="0.483"
+                app:layout_constraintStart_toStartOf="@+id/tvStepsProgress"
+                app:layout_constraintTop_toBottomOf="@+id/tvStepsProgress" />
+
+            <ImageView
+                android:id="@+id/ivFootsteps"
+                android:layout_width="104dp"
+                android:layout_height="98dp"
+                android:layout_marginStart="224dp"
+                app:layout_constraintStart_toStartOf="@+id/pbStepsTracker"
+                app:layout_constraintTop_toBottomOf="@+id/otfStepGoals"
+                app:srcCompat="@drawable/foot" />
+
+            <ImageView
+                android:id="@+id/ivFootsteps2"
+                android:layout_width="109dp"
+                android:layout_height="105dp"
+                android:layout_marginTop="160dp"
+                android:layout_marginEnd="244dp"
+                app:layout_constraintEnd_toEndOf="@+id/pbStepsTracker"
+                app:layout_constraintTop_toTopOf="@+id/pbStepsTracker"
+                app:srcCompat="@drawable/foot" />
+
+            <Button
+                android:id="@+id/btnPlus"
+                android:layout_width="46dp"
+                android:layout_height="44dp"
+                android:layout_marginStart="16dp"
+                android:text="+"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="@+id/sGlasses"
+                app:layout_constraintStart_toEndOf="@+id/sGlasses"
+                app:layout_constraintTop_toTopOf="@+id/sGlasses" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/otfStepGoals"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="178dp"
+                android:layout_height="55dp"
+                android:layout_marginTop="8dp"
+                android:hint="Set a goal"
+                app:layout_constraintStart_toStartOf="@+id/tvSteps"
+                app:layout_constraintTop_toBottomOf="@+id/tvSteps">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="sans-serif-condensed" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <ProgressBar
+                android:id="@+id/pbStepsTrackerBg"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="298dp"
+                android:layout_height="217dp"
+                android:layout_marginTop="32dp"
+                android:indeterminateOnly="false"
+                android:max="120"
+                android:progress="100"
+                android:progressDrawable="@drawable/pb_circular_determinative_background"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.495"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/otfStepGoals" />
+
+            <ProgressBar
+                android:id="@+id/pbStepsTracker"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="298dp"
+                android:layout_height="217dp"
+                android:layout_marginTop="32dp"
+                android:indeterminateOnly="false"
+                android:max="120"
+                android:progress="70"
+                android:progressDrawable="@drawable/pb_circular_determinative"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.495"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/otfStepGoals" />
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
 </layout>
