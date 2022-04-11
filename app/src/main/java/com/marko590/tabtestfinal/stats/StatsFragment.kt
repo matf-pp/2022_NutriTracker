@@ -18,6 +18,10 @@ import android.widget.*
 import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
+import androidx.room.Room
 import com.github.mikephil.charting.charts.BarChart
 import com.github.mikephil.charting.components.XAxis
 import com.github.mikephil.charting.data.BarData
@@ -26,12 +30,19 @@ import com.github.mikephil.charting.data.BarEntry
 import com.github.mikephil.charting.utils.ColorTemplate
 import com.marko590.tabtestfinal.R
 import com.marko590.tabtestfinal.databinding.StatsFragmentBinding
+import com.marko590.tabtestfinal.storage.AppDatabase
+import com.marko590.tabtestfinal.storage.TodoEntity
+import kotlinx.android.synthetic.main.stats_fragment.*
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import java.util.*
 
 
 class StatsFragment : androidx.fragment.app.Fragment()  {
 
-    var calorieChart : RoundedBarChart?=null
+    private var calorieChart : RoundedBarChart?=null
+
+    private var text : String?="1"
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         val binding = DataBindingUtil.inflate<StatsFragmentBinding>(
@@ -69,8 +80,29 @@ class StatsFragment : androidx.fragment.app.Fragment()  {
         stepMonthButton.setOnClickListener { v ->
             showPopupWindow(inflater,binding,stepChart!!)
         }
+
+
+        val db = Room.databaseBuilder(
+            requireContext(),
+            AppDatabase::class.java, "todo-list.db"
+        ).build()
+
+        GlobalScope.launch {
+            db.TodoDao().insertAll(TodoEntity(0,"title", "Content"))
+            // TODO: make primary key (id) unique, otherwise it crashes 
+        }
+        var observer: Observer<TodoEntity> = androidx.lifecycle.Observer<TodoEntity>(){
+            @Override
+            fun onChanged(newEntity: TodoEntity){
+                calorieChartText.text=newEntity.content
+            }
+        }
+        db.TodoDao().findByTitle("title").observe(viewLifecycleOwner,observer)
+
+
         return binding.root
     }
+
     fun showPopupWindow(inflater: LayoutInflater,binding: StatsFragmentBinding,barChart: BarChart){
 
         // Inflate the popup window layout
@@ -105,7 +137,6 @@ class StatsFragment : androidx.fragment.app.Fragment()  {
         //Set event listener for the close button
         closeButton.setOnClickListener{
 
-
             var anim=popupView.animate().translationX(1600f)
             anim.setListener(object : Animator.AnimatorListener {
                 override fun onAnimationStart(animation: Animator) {}
@@ -118,11 +149,8 @@ class StatsFragment : androidx.fragment.app.Fragment()  {
 
         }
 
-
         val sharedPref : SharedPreferences= requireContext().getSharedPreferences("UserInfoPref", Context.MODE_PRIVATE)
         binding.calorieChartText.text=sharedPref.getString("usrName","No username entered")
-
-
 
         //Display button listener
         buttonEdit.setOnClickListener{
@@ -138,6 +166,7 @@ class StatsFragment : androidx.fragment.app.Fragment()  {
             ).show()
 
 
+            calorieChartText.text=text
             // Mocked data changing, need to replace
             when (popupHandler.currentChoice % 2) {
                 0 -> populateBarChart(barChart!!)
@@ -155,13 +184,11 @@ class StatsFragment : androidx.fragment.app.Fragment()  {
                 override fun onAnimationCancel(animation: Animator) {}
                 override fun onAnimationRepeat(animation: Animator) {}
             })
-
         }
         popupWindow.showAtLocation(view, Gravity.BOTTOM, 0, 0)
     }
     private fun setupBarChart(barChart: RoundedBarChart){
         //adjusting left y axis
-
         barChart.axisLeft.setDrawGridLines(true)
         barChart.axisLeft.setDrawLabels(false)
         barChart.axisLeft.setDrawAxisLine(false)
