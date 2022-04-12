@@ -254,39 +254,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end|bottom"
+            android:layout_marginTop="20dp"
             android:backgroundTint="@color/primaryColor"
             android:fontFamily="sans-serif-condensed"
             android:text="History"
             android:textColor="@android:color/white"
             app:icon="@android:drawable/ic_menu_recent_history"
             app:iconTint="@color/primaryTextColor"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="@+id/btnAdd"
+            app:layout_constraintTop_toBottomOf="@+id/tvCarbsIntake" />
 
-        <Button
-            android:id="@+id/testbut1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="32dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvCarbs" />
-        <Button
-            android:id="@+id/testbut2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="32dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/testbut1" />
-        <Button
-            android:id="@+id/testbut3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="32dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/testbut2" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </layout>
