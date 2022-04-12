@@ -18,7 +18,6 @@
         <entry key="..\:/Users/marko/AndroidStudioProjects/2022_NutriTrackerc/app/src/main/res/layout/daily_fragment.xml" value="0.7335127860026918" />
         <entry key="..\:/Users/marko/AndroidStudioProjects/2022_NutriTrackerc/app/src/main/res/layout/popup_view_layout.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/marko/AndroidStudioProjects/2022_NutriTrackerc/app/src/main/res/layout/stats_fragment.xml" value="0.358695652173913" />
-        <entry key="app/src/main/res/drawable/spinner_background.xml" value="0.1055" />
         <entry key="..\:/Users/marko/AndroidStudioProjects/2022_NutriTrackerc/app/src/main/res/layout/water_fragment.xml" value="0.18541666666666667" />
         <entry key="..\:/Users/marko/AndroidStudioProjects/2022_NutriTrackerfinal/app/src/main/res/layout/daily_fragment.xml" value="0.3625" />
         <entry key="..\:/Users/marko/AndroidStudioProjects/2022_NutriTrackerfinal/app/src/main/res/layout/stats_fragment.xml" value="0.2961730449251248" />
@@ -27,12 +26,13 @@
         <entry key="app/src/main/res/drawable/pb_circular_determinative.xml" value="0.2635" />
         <entry key="app/src/main/res/drawable/pb_circular_determinative_background.xml" value="0.19" />
         <entry key="app/src/main/res/drawable/pb_horizontal_bg.xml" value="0.1465" />
+        <entry key="app/src/main/res/drawable/spinner_background.xml" value="0.1055" />
         <entry key="app/src/main/res/font/.xml" value="0.2911458333333333" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.16259057971014493" />
         <entry key="app/src/main/res/layout/activity_user_info.xml" value="0.33" />
-        <entry key="app/src/main/res/layout/daily_fragment.xml" value="0.49067713444553485" />
+        <entry key="app/src/main/res/layout/daily_fragment.xml" value="0.1" />
         <entry key="app/src/main/res/layout/stats_fragment.xml" value="0.17325227963525835" />
-        <entry key="app/src/main/res/layout/water_fragment.xml" value="0.17325227963525835" />
+        <entry key="app/src/main/res/layout/water_fragment.xml" value="0.36951754385964913" />
       </map>
     </option>
   </component>

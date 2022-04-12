@@ -15,8 +15,6 @@ class WaterFragment : Fragment() {
             R.layout.water_fragment,container,false)
 
 
-        binding
-
         return binding.root
     }
 }

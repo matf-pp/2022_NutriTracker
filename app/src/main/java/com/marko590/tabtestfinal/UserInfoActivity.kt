@@ -12,14 +12,12 @@ class UserInfoActivity : AppCompatActivity() {
         setContentView(R.layout.activity_user_info)
 
         // Creating spinner for activity level
-        val activityLevel = resources.getStringArray(R.array.activityLevel)
+        val listActivity = resources.getStringArray(R.array.activityLevel)
         val spinner = sActivity
         if(spinner != null){
-            val adapter = ArrayAdapter(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, activityLevel)
+            val adapter = ArrayAdapter(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, listActivity)
             spinner.adapter = adapter
         }
-        val sharedPref = getSharedPreferences("UserInfoPref", Context.MODE_PRIVATE)
-        val editor = sharedPref.edit()
 
         // Check and display error message if input is missing
         fun validateFields():Boolean {
@@ -42,6 +40,69 @@ class UserInfoActivity : AppCompatActivity() {
             return true
         }
 
+        val sharedPref = getSharedPreferences("UserInfoPref", Context.MODE_PRIVATE)
+        var bmr = 0.0
+        var calorieIntake = 0
+        var proteinIntake = 0
+        var fatIntake = 0
+        var carbsIntake = 0
+
+        fun calculateNutrients(){
+
+            val height = sharedPref.getInt("usrHeight", 0)
+            val weight = sharedPref.getInt("usrWeight", 0)
+            val age = sharedPref.getInt("usrAge", 0)
+            val isWoman = sharedPref.getBoolean("isWoman", false)
+            val isMan = sharedPref.getBoolean("isMan", false)
+            val activityLevel = sharedPref.getString("activityLevel", null)
+
+            // Calculating user BMR using Mifflin St Jeor Equation
+            if(isMan) {
+                bmr = 10 * weight + 6.25 * height - 5 * age + 5
+            } else if(isWoman) {
+                bmr = 10 * weight + 6.25 * height - 5 * age - 161
+            }
+
+            // Calculating nutrients intake based on activity level
+            // 4 kCal = 1g of protein and carbs
+            // 9 kCal = 1g of fat
+            val activity = resources.getStringArray(R.array.activityLevel)
+            when(activityLevel){
+                activity[0] -> { // Sedentary
+                    calorieIntake = (bmr * 1.2).toInt()
+                    proteinIntake = (calorieIntake * 0.1 / 4).toInt()
+                    fatIntake = (calorieIntake * 0.25 / 9).toInt()
+                    carbsIntake = (calorieIntake * 0.45 / 4).toInt()
+                }
+                activity[1] -> { // Lightly active
+                    calorieIntake = (bmr * 1.375).toInt()
+                    proteinIntake = (calorieIntake * 0.15 / 4).toInt()
+                    fatIntake = (calorieIntake * 0.3 / 9).toInt()
+                    carbsIntake = (calorieIntake * 0.5 / 4).toInt()
+                }
+                activity[2] -> { // Moderately active
+                    calorieIntake = (bmr * 1.55).toInt()
+                    proteinIntake = (calorieIntake * 0.2 / 4).toInt()
+                    fatIntake = (calorieIntake * 0.3 / 9).toInt()
+                    carbsIntake = (calorieIntake * 0.55 / 4).toInt()
+                }
+                activity[3] -> { // Active
+                    calorieIntake = (bmr * 1.725).toInt()
+                    proteinIntake = (calorieIntake * 0.25 / 4).toInt()
+                    fatIntake = (calorieIntake * 0.3 / 9).toInt()
+                    carbsIntake = (calorieIntake * 0.6 / 4).toInt()
+                }
+                activity[4] -> { // Very active
+                    calorieIntake = (bmr * 1.9).toInt()
+                    proteinIntake = (calorieIntake * 0.3 / 4).toInt()
+                    fatIntake = (calorieIntake * 0.3 / 9).toInt()
+                    carbsIntake = (calorieIntake * 0.65 / 4).toInt()
+                }
+            }
+        }
+
+        val editor = sharedPref.edit()
+
         fabNext.setOnClickListener {
             if (validateFields()) {
                 // Setting shared preference for user input
@@ -53,12 +114,20 @@ class UserInfoActivity : AppCompatActivity() {
                     putBoolean("isWoman", rbWoman.isChecked)
                     putBoolean("isMan", rbMan.isChecked)
                     putString("activityLevel", sActivity.selectedItem.toString())
-                    apply()
 
+                    calculateNutrients()
+
+                    putInt("calorieIntake", calorieIntake)
+                    putInt("proteinIntake", proteinIntake)
+                    putInt("fatIntake", fatIntake)
+                    putInt("carbsIntake", carbsIntake)
+                    apply()
                 }
+
                 finish()
             }
         }
+
 
     }
 }
