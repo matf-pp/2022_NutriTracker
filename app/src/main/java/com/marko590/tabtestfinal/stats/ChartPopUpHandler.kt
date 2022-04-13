@@ -1,14 +1,28 @@
 package com.marko590.tabtestfinal.stats
 
+import android.animation.Animator
+import android.content.Context
+import android.content.SharedPreferences
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Build
+import android.view.Gravity
+import android.view.LayoutInflater
 import android.view.View
 import android.view.animation.AnimationUtils
 import android.widget.*
+import androidx.cardview.widget.CardView
+import com.github.mikephil.charting.charts.BarChart
 import com.marko590.tabtestfinal.R
+import com.marko590.tabtestfinal.databinding.StatsFragmentBinding
+import java.time.Month
 
-class ChartPopUpHandler(private val popupWindow: PopupWindow, private val popupView: View) {
+class ChartPopUpHandler(private val popupWindow: PopupWindow,
+                        private val popupView: View,
+                        private val context: Context,
+                        private var month: Int
+) {
+
      var currentChoice=0
 
      fun setup(){
@@ -48,5 +62,8 @@ class ChartPopUpHandler(private val popupWindow: PopupWindow, private val popupV
             popupView!!.resources.getDimension(com.google.android.material.R.dimen.m3_menu_elevation)
         picker.displayedValues = months
 
+        picker.value=month+1
     }
+
+
 }

@@ -29,18 +29,18 @@ class DailyFragment : Fragment() {
 
 
         val sharedPrefIntake = requireContext().getSharedPreferences("UserInfoPref", Context.MODE_PRIVATE)
-        val calorieIntake = sharedPrefIntake.getInt("calorieIntake", 0)
-        val proteinIntake = sharedPrefIntake.getInt("proteinIntake", 0)
-        val fatIntake = sharedPrefIntake.getInt("fatIntake", 0)
-        val carbsIntake = sharedPrefIntake.getInt("carbsIntake", 0)
+        val calorieIntake = sharedPrefIntake.getInt("calorieIntake", 1)
+        val proteinIntake = sharedPrefIntake.getInt("proteinIntake", 1)
+        val fatIntake = sharedPrefIntake.getInt("fatIntake", 1)
+        val carbsIntake = sharedPrefIntake.getInt("carbsIntake", 1)
 
         val sharedPrefProgress = requireContext().getSharedPreferences("NutrientsRef", Context.MODE_PRIVATE)
         val editorProgress = sharedPrefProgress.edit()
 
-        var calorieProgress = sharedPrefProgress.getInt("calorieProgress", 0)
-        var proteinProgress = sharedPrefProgress.getInt("proteinProgress", 0)
-        var fatProgress = sharedPrefProgress.getInt("fatProgress", 0)
-        var carbsProgress = sharedPrefProgress.getInt("carbsProgress", 0)
+        var calorieProgress = sharedPrefProgress.getInt("calorieProgress", 1)
+        var proteinProgress = sharedPrefProgress.getInt("proteinProgress", 1)
+        var fatProgress = sharedPrefProgress.getInt("fatProgress", 1)
+        var carbsProgress = sharedPrefProgress.getInt("carbsProgress", 1)
 
 
 
@@ -68,10 +68,10 @@ class DailyFragment : Fragment() {
         }
 
         fun get(){
-            calorieProgress = sharedPrefProgress.getInt("calorieProgress", 0)
-            proteinProgress = sharedPrefProgress.getInt("proteinProgress", 0)
-            fatProgress = sharedPrefProgress.getInt("fatProgress", 0)
-            carbsProgress = sharedPrefProgress.getInt("carbsProgress", 0)
+            calorieProgress = sharedPrefProgress.getInt("calorieProgress", 1)
+            proteinProgress = sharedPrefProgress.getInt("proteinProgress", 1)
+            fatProgress = sharedPrefProgress.getInt("fatProgress", 1)
+            carbsProgress = sharedPrefProgress.getInt("carbsProgress", 1)
         }
 
 
