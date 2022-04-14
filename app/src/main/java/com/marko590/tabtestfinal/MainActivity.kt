@@ -1,17 +1,22 @@
 package com.marko590.tabtestfinal
 
+import android.content.Intent
 import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.core.content.res.ResourcesCompat
 import androidx.core.graphics.BlendModeColorFilterCompat
 import androidx.core.graphics.BlendModeCompat
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
+import com.marko590.tabtestfinal.menu.about.AboutActivity
+import com.marko590.tabtestfinal.menu.settings.SettingsActivity
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -40,24 +45,25 @@ class MainActivity : AppCompatActivity() {
         TabLayoutMediator(tab_layout, tabs_viewpager) { tab, position ->
             when (position) {
                 0 -> {
+                    tab.icon = ResourcesCompat.getDrawable(getResources(), R.drawable.ic_baseline_today_24, theme)
                     tab.text = "Today"
 
                 }
                 1 -> {
-                    tab.text = "Water&Steps"
-
+                    tab.text = "Water"
+                    tab.icon= ResourcesCompat.getDrawable(getResources(), R.drawable.ic_water, theme)
 
                 }
                 2 -> {
                     tab.text = "Stats"
-
+                    tab.icon= ResourcesCompat.getDrawable(getResources(), R.drawable.ic_baseline_bar_chart_24, theme)
                 }
 
             }
 
             tab.icon?.colorFilter =
                 BlendModeColorFilterCompat.createBlendModeColorFilterCompat(
-                    Color.GREEN,
+                    Color.WHITE,
                     BlendModeCompat.SRC_ATOP
                 )
         }.attach()
@@ -71,8 +77,18 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
-            R.id.action_settings -> Toast.makeText(this,"Settings selected",Toast.LENGTH_SHORT).show()
-            R.id.about ->Toast.makeText(this,"About selected",Toast.LENGTH_SHORT).show()
+            R.id.action_settings -> {
+                val intent = Intent(this, SettingsActivity::class.java)
+                startActivity(intent)
+                return true
+                Toast.makeText(this,"Settings selected",Toast.LENGTH_SHORT).show()
+            }
+            R.id.about ->{
+                val intent = Intent(this, AboutActivity::class.java)
+                startActivity(intent)
+                return true
+                Toast.makeText(this,"Settings selected",Toast.LENGTH_SHORT).show()
+                Toast.makeText(this,"About selected",Toast.LENGTH_SHORT).show()}
         }
         return super.onOptionsItemSelected(item)
     }

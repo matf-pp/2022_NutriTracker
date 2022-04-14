@@ -16,7 +16,7 @@ public class DailyFragmentBindingImpl extends DailyFragmentBinding  {
         sViewsWithIds = new android.util.SparseIntArray();
         sViewsWithIds.put(R.id.pbCaloriesTrackerBg, 1);
         sViewsWithIds.put(R.id.pbCaloriesTracker, 2);
-        sViewsWithIds.put(R.id.tvPercentage, 3);
+        sViewsWithIds.put(R.id.tvCaloriesIntake, 3);
         sViewsWithIds.put(R.id.tvPercent, 4);
         sViewsWithIds.put(R.id.tvCalories, 5);
         sViewsWithIds.put(R.id.tvCaloriesCounter, 6);
@@ -32,9 +32,6 @@ public class DailyFragmentBindingImpl extends DailyFragmentBinding  {
         sViewsWithIds.put(R.id.pbCarbsIntake, 16);
         sViewsWithIds.put(R.id.tvCarbsIntake, 17);
         sViewsWithIds.put(R.id.fabHistory, 18);
-        sViewsWithIds.put(R.id.testbut1, 19);
-        sViewsWithIds.put(R.id.testbut2, 20);
-        sViewsWithIds.put(R.id.testbut3, 21);
     }
     // views
     @NonNull
@@ -45,7 +42,7 @@ public class DailyFragmentBindingImpl extends DailyFragmentBinding  {
     // Inverse Binding Event Handlers
 
     public DailyFragmentBindingImpl(@Nullable androidx.databinding.DataBindingComponent bindingComponent, @NonNull View root) {
-        this(bindingComponent, root, mapBindings(bindingComponent, root, 22, sIncludes, sViewsWithIds));
+        this(bindingComponent, root, mapBindings(bindingComponent, root, 19, sIncludes, sViewsWithIds));
     }
     private DailyFragmentBindingImpl(androidx.databinding.DataBindingComponent bindingComponent, View root, Object[] bindings) {
         super(bindingComponent, root, 0
@@ -57,17 +54,14 @@ public class DailyFragmentBindingImpl extends DailyFragmentBinding  {
             , (android.widget.ProgressBar) bindings[16]
             , (android.widget.ProgressBar) bindings[13]
             , (android.widget.ProgressBar) bindings[10]
-            , (android.widget.Button) bindings[19]
-            , (android.widget.Button) bindings[20]
-            , (android.widget.Button) bindings[21]
             , (android.widget.TextView) bindings[5]
             , (android.widget.TextView) bindings[6]
+            , (android.widget.TextView) bindings[3]
             , (android.widget.TextView) bindings[15]
             , (android.widget.TextView) bindings[17]
             , (android.widget.TextView) bindings[12]
             , (android.widget.TextView) bindings[14]
             , (android.widget.TextView) bindings[4]
-            , (android.widget.TextView) bindings[3]
             , (android.widget.TextView) bindings[9]
             , (android.widget.TextView) bindings[11]
             );

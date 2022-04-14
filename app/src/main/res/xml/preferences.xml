@@ -1,4 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <PreferenceCategory
 
+        android:title="User info"
+        >
+        <SwitchPreference
+
+            android:defaultValue="true"
+            android:title="Settings option"
+            android:key="example_switch"
+            android:summary="Turn this option on or off" />
+        <EditTextPreference
+
+            android:key="user_weight"
+            android:title="Edit your weight"
+            android:summary="Change your weight"
+            android:dialogTitle="Change weight"
+            android:dialogMessage="Input your new weight please..."
+            />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="App preferences"
+        >
+        <DropDownPreference
+            android:key="reminder"
+            android:title="Notification Frequency"
+            android:summary="Change how often you want to be reminded"
+            android:dialogTitle="Reminder Frequency"
+            android:dialogMessage="Set how often you want to be reminded to drink water"
+            />
+
+    </PreferenceCategory>
 </PreferenceScreen>

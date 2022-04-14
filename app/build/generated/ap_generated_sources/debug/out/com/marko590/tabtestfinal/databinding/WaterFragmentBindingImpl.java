@@ -14,24 +14,54 @@ public class WaterFragmentBindingImpl extends WaterFragmentBinding  {
     static {
         sIncludes = null;
         sViewsWithIds = new android.util.SparseIntArray();
-        sViewsWithIds.put(R.id.textView2, 1);
+        sViewsWithIds.put(R.id.pbWaterIntake, 1);
+        sViewsWithIds.put(R.id.sGlasses, 2);
+        sViewsWithIds.put(R.id.tvWater, 3);
+        sViewsWithIds.put(R.id.tvWaterIntake, 4);
+        sViewsWithIds.put(R.id.tvWaterProgress, 5);
+        sViewsWithIds.put(R.id.tvWaterRemain, 6);
+        sViewsWithIds.put(R.id.btnReminder, 7);
+        sViewsWithIds.put(R.id.tvSteps, 8);
+        sViewsWithIds.put(R.id.tvStepsProgress, 9);
+        sViewsWithIds.put(R.id.tvSteps2, 10);
+        sViewsWithIds.put(R.id.ivFootsteps, 11);
+        sViewsWithIds.put(R.id.ivFootsteps2, 12);
+        sViewsWithIds.put(R.id.btnPlus, 13);
+        sViewsWithIds.put(R.id.otfStepGoals, 14);
+        sViewsWithIds.put(R.id.pbStepsTrackerBg, 15);
+        sViewsWithIds.put(R.id.pbStepsTracker, 16);
     }
     // views
     @NonNull
-    private final androidx.constraintlayout.widget.ConstraintLayout mboundView0;
+    private final android.widget.ScrollView mboundView0;
     // variables
     // values
     // listeners
     // Inverse Binding Event Handlers
 
     public WaterFragmentBindingImpl(@Nullable androidx.databinding.DataBindingComponent bindingComponent, @NonNull View root) {
-        this(bindingComponent, root, mapBindings(bindingComponent, root, 2, sIncludes, sViewsWithIds));
+        this(bindingComponent, root, mapBindings(bindingComponent, root, 17, sIncludes, sViewsWithIds));
     }
     private WaterFragmentBindingImpl(androidx.databinding.DataBindingComponent bindingComponent, View root, Object[] bindings) {
         super(bindingComponent, root, 0
-            , (android.widget.TextView) bindings[1]
+            , (android.widget.Button) bindings[13]
+            , (android.widget.Button) bindings[7]
+            , (android.widget.ImageView) bindings[11]
+            , (android.widget.ImageView) bindings[12]
+            , (com.google.android.material.textfield.TextInputLayout) bindings[14]
+            , (android.widget.ProgressBar) bindings[16]
+            , (android.widget.ProgressBar) bindings[15]
+            , (android.widget.ProgressBar) bindings[1]
+            , (android.widget.Spinner) bindings[2]
+            , (android.widget.TextView) bindings[8]
+            , (android.widget.TextView) bindings[10]
+            , (android.widget.TextView) bindings[9]
+            , (android.widget.TextView) bindings[3]
+            , (android.widget.TextView) bindings[4]
+            , (android.widget.TextView) bindings[5]
+            , (android.widget.TextView) bindings[6]
             );
-        this.mboundView0 = (androidx.constraintlayout.widget.ConstraintLayout) bindings[0];
+        this.mboundView0 = (android.widget.ScrollView) bindings[0];
         this.mboundView0.setTag(null);
         setRootTag(root);
         // listeners

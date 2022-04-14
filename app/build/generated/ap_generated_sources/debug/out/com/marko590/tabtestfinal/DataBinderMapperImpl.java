@@ -6,6 +6,7 @@ import android.view.View;
 import androidx.databinding.DataBinderMapper;
 import androidx.databinding.DataBindingComponent;
 import androidx.databinding.ViewDataBinding;
+import com.marko590.tabtestfinal.databinding.AboutFragmentBindingImpl;
 import com.marko590.tabtestfinal.databinding.DailyFragmentBindingImpl;
 import com.marko590.tabtestfinal.databinding.PopupViewLayoutBindingImpl;
 import com.marko590.tabtestfinal.databinding.StatsFragmentBindingImpl;
@@ -21,17 +22,20 @@ import java.util.HashMap;
 import java.util.List;
 
 public class DataBinderMapperImpl extends DataBinderMapper {
-  private static final int LAYOUT_DAILYFRAGMENT = 1;
+  private static final int LAYOUT_ABOUTFRAGMENT = 1;
 
-  private static final int LAYOUT_POPUPVIEWLAYOUT = 2;
+  private static final int LAYOUT_DAILYFRAGMENT = 2;
 
-  private static final int LAYOUT_STATSFRAGMENT = 3;
+  private static final int LAYOUT_POPUPVIEWLAYOUT = 3;
 
-  private static final int LAYOUT_WATERFRAGMENT = 4;
+  private static final int LAYOUT_STATSFRAGMENT = 4;
 
-  private static final SparseIntArray INTERNAL_LAYOUT_ID_LOOKUP = new SparseIntArray(4);
+  private static final int LAYOUT_WATERFRAGMENT = 5;
+
+  private static final SparseIntArray INTERNAL_LAYOUT_ID_LOOKUP = new SparseIntArray(5);
 
   static {
+    INTERNAL_LAYOUT_ID_LOOKUP.put(com.marko590.tabtestfinal.R.layout.about_fragment, LAYOUT_ABOUTFRAGMENT);
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.marko590.tabtestfinal.R.layout.daily_fragment, LAYOUT_DAILYFRAGMENT);
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.marko590.tabtestfinal.R.layout.popup_view_layout, LAYOUT_POPUPVIEWLAYOUT);
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.marko590.tabtestfinal.R.layout.stats_fragment, LAYOUT_STATSFRAGMENT);
@@ -47,6 +51,12 @@ public class DataBinderMapperImpl extends DataBinderMapper {
         throw new RuntimeException("view must have a tag");
       }
       switch(localizedLayoutId) {
+        case  LAYOUT_ABOUTFRAGMENT: {
+          if ("layout/about_fragment_0".equals(tag)) {
+            return new AboutFragmentBindingImpl(component, view);
+          }
+          throw new IllegalArgumentException("The tag for about_fragment is invalid. Received: " + tag);
+        }
         case  LAYOUT_DAILYFRAGMENT: {
           if ("layout/daily_fragment_0".equals(tag)) {
             return new DailyFragmentBindingImpl(component, view);
@@ -124,9 +134,10 @@ public class DataBinderMapperImpl extends DataBinderMapper {
   }
 
   private static class InnerLayoutIdLookup {
-    static final HashMap<String, Integer> sKeys = new HashMap<String, Integer>(4);
+    static final HashMap<String, Integer> sKeys = new HashMap<String, Integer>(5);
 
     static {
+      sKeys.put("layout/about_fragment_0", com.marko590.tabtestfinal.R.layout.about_fragment);
       sKeys.put("layout/daily_fragment_0", com.marko590.tabtestfinal.R.layout.daily_fragment);
       sKeys.put("layout/popup_view_layout_0", com.marko590.tabtestfinal.R.layout.popup_view_layout);
       sKeys.put("layout/stats_fragment_0", com.marko590.tabtestfinal.R.layout.stats_fragment);
