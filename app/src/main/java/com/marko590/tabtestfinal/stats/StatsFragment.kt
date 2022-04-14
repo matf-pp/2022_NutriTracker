@@ -14,18 +14,24 @@ import android.widget.*
 import androidx.annotation.Nullable
 import androidx.cardview.widget.CardView
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.LiveData
+import androidx.lifecycle.*
 import com.github.mikephil.charting.charts.BarChart
 import com.marko590.tabtestfinal.R
+import com.marko590.tabtestfinal.data.AppDatabase
+import com.marko590.tabtestfinal.data.AppRepository
+import com.marko590.tabtestfinal.data.Food
+import com.marko590.tabtestfinal.data.UserViewFood
 import com.marko590.tabtestfinal.databinding.StatsFragmentBinding
+import kotlinx.coroutines.launch
 
 import java.text.SimpleDateFormat
 import java.time.Month
 import java.util.*
+import java.util.Observer
 
 class StatsFragment : androidx.fragment.app.Fragment()  {
 
+    private lateinit var mUserViewModel : UserViewFood
     var calorieChart : RoundedBarChart?=null
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
@@ -37,7 +43,8 @@ class StatsFragment : androidx.fragment.app.Fragment()  {
 
         val chartHandler = ChartHandler(requireContext(),month)
 
-        
+        mUserViewModel= ViewModelProvider(this).get(UserViewFood::class.java)
+
         //Setup the bar chart for calorie intake
         calorieChart = binding.calorieChart
         chartHandler.setupBarChart(calorieChart!!)
@@ -47,13 +54,22 @@ class StatsFragment : androidx.fragment.app.Fragment()  {
         calorieChart!!.description
 
 
+
         //Show popup window on button click
+        var data : String?=null
         val calorieMonthButton = binding.button1
         calorieMonthButton.setOnClickListener {v -> showPopupWindow(inflater,calorieChart!!,view as View,month)
-            var check=""
 
 
-        }
+            mUserViewModel.readAllFood.observe(viewLifecycleOwner, androidx.lifecycle.Observer {
+
+                data=it.toString()
+            })
+
+
+        binding.calorieChartText.text=data
+}
+
 
 
         //Setup the bar chart for steps
@@ -96,6 +112,7 @@ class StatsFragment : androidx.fragment.app.Fragment()  {
 
         //Set event listener for the close button
         closeButton.setOnClickListener{
+
 
             val anim=popupView.animate().translationX(1600f)
             anim.setListener(object : Animator.AnimatorListener {
