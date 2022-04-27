@@ -25,6 +25,14 @@
         <item>Very active (hard exercise 6–7 days/week)</item>
     </string-array>
 
+    <string-array name="glassSize">
+        <item>100 ml</item>
+        <item>200 ml</item>
+        <item>300 ml</item>
+        <item>500 ml</item>
+        <item>750 ml</item>
+    </string-array>
+
     <string name="kCalProgress">%1d/%2dkCal</string>
     <string name="nutrientsProgress">%1d/%2dg (%3d%%)</string>
 </resources>

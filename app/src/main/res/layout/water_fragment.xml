@@ -80,35 +80,17 @@
                 app:layout_constraintTop_toTopOf="@+id/pbWaterIntake"
                 app:layout_constraintVertical_bias="1.0" />
 
-            <TextView
-                android:id="@+id/tvWaterRemain"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="140dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="140dp"
-                android:fontFamily="sans-serif-condensed"
-                android:text="10 cups left!"
-                android:textAlignment="center"
-                android:textAllCaps="false"
-                android:textColor="@color/primaryColorTransparent"
-                android:textSize="28sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.641"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/pbWaterIntake" />
+
 
             <Button
                 android:id="@+id/btnReminder"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
                 android:text="Remind me!"
-                app:layout_constraintEnd_toEndOf="@+id/tvWaterRemain"
+                app:layout_constraintEnd_toEndOf="@+id/tvWaterProgress"
                 app:layout_constraintHorizontal_bias="0.511"
-                app:layout_constraintStart_toStartOf="@+id/tvWaterRemain"
-                app:layout_constraintTop_toBottomOf="@+id/tvWaterRemain" />
+                app:layout_constraintStart_toStartOf="@+id/pbWaterIntake"
+                app:layout_constraintTop_toBottomOf="@+id/pbWaterIntake" />
 
             <TextView
                 android:id="@+id/tvSteps"

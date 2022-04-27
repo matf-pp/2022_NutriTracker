@@ -49,9 +49,9 @@ class UserInfoActivity : AppCompatActivity() {
 
         fun calculateNutrients(){
 
-            val height = sharedPref.getInt("usrHeight", 0)
-            val weight = sharedPref.getInt("usrWeight", 0)
-            val age = sharedPref.getInt("usrAge", 0)
+            val height = sharedPref.getInt("usrHeight", 1)
+            val weight = sharedPref.getInt("usrWeight", 1)
+            val age = sharedPref.getInt("usrAge", 1)
             val isWoman = sharedPref.getBoolean("isWoman", false)
             val isMan = sharedPref.getBoolean("isMan", false)
             val activityLevel = sharedPref.getString("activityLevel", null)
