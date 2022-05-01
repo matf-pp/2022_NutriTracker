@@ -7,264 +7,264 @@
         android:layout_height="wrap_content"
         tools:layout_editor_absoluteX="1dp"
         tools:layout_editor_absoluteY="1dp">
-    <androidx.constraintlayout.widget.ConstraintLayout
 
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:padding="16sp"
-        tools:context=".DailyFragment">
+        <androidx.constraintlayout.widget.ConstraintLayout
 
-        <ProgressBar
-            android:id="@+id/pbCaloriesTrackerBg"
-            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-            android:layout_width="342dp"
-            android:layout_height="241dp"
-            android:layout_marginTop="4dp"
-            android:indeterminateOnly="false"
-            android:max="120"
-            android:progress="100"
-            android:progressDrawable="@drawable/pb_circular_determinative_background"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ProgressBar
-            android:id="@+id/pbCaloriesTracker"
-            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-            android:layout_width="342dp"
-            android:layout_height="241dp"
-            android:layout_marginTop="4dp"
-            android:indeterminateOnly="false"
-            android:max="120"
-            android:progress="66"
-            android:progressDrawable="@drawable/pb_circular_determinative"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-
-        <TextView
-            android:id="@+id/tvCaloriesIntake"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-medium"
-            android:text="100"
-            android:textColor="@color/primaryColorTransparent"
-            android:textSize="50sp"
-            app:layout_constraintBottom_toBottomOf="@+id/pbCaloriesTracker"
-            app:layout_constraintEnd_toEndOf="@+id/pbCaloriesTracker"
-            app:layout_constraintHorizontal_bias="0.496"
-            app:layout_constraintStart_toStartOf="@+id/pbCaloriesTracker"
-            app:layout_constraintTop_toTopOf="@+id/pbCaloriesTracker"
-            app:layout_constraintVertical_bias="0.441" />
+            android:background="@color/white"
+            android:padding="16sp"
+            tools:context=".DailyFragment">
 
-        <TextView
-            android:id="@+id/tvPercent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-medium"
-            android:text="%"
-            android:textColor="@color/primaryColorTransparent"
-            android:textSize="20sp"
-            app:layout_constraintStart_toEndOf="@+id/tvCaloriesIntake"
-            app:layout_constraintTop_toTopOf="@+id/tvCaloriesIntake" />
+            <ProgressBar
+                android:id="@+id/pbCaloriesTrackerBg"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="342dp"
+                android:layout_height="241dp"
+                android:layout_marginTop="4dp"
+                android:indeterminateOnly="false"
+                android:max="120"
+                android:progress="100"
+                android:progressDrawable="@drawable/pb_circular_determinative_background"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-
-        <TextView
-            android:id="@+id/tvCalories"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-condensed"
-            android:text="Calories"
-            android:textColor="@color/primaryColorTransparent"
-            android:textSize="28sp"
-            app:layout_constraintBottom_toBottomOf="@+id/pbCaloriesTracker"
-            app:layout_constraintEnd_toEndOf="@+id/pbCaloriesTracker"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="@+id/pbCaloriesTracker"
-            app:layout_constraintTop_toBottomOf="@+id/tvCaloriesIntake"
-            app:layout_constraintVertical_bias="0.813" />
-
-        <TextView
-            android:id="@+id/tvCaloriesCounter"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:fontFamily="sans-serif-condensed"
-            android:text="2000/2000kCal"
-            android:textColor="@color/primaryColorTransparent"
-            android:textSize="16sp"
-            android:textStyle="italic"
-            app:layout_constraintBottom_toTopOf="@+id/tvCalories"
-            app:layout_constraintEnd_toEndOf="@+id/tvCalories"
-            app:layout_constraintHorizontal_bias="0.571"
-            app:layout_constraintStart_toStartOf="@+id/tvCalories"
-            tools:ignore="TextContrastCheck" />
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/otfFoodName"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="0dp"
-            android:layout_height="60dp"
-            android:layout_margin="10dp"
-            android:hint="Food name"
-            app:layout_constraintEnd_toStartOf="@+id/btnAdd"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/pbCaloriesTracker">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:fontFamily="sans-serif-condensed" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <Button
-            android:id="@+id/btnAdd"
-            android:layout_width="0dp"
-            android:layout_height="65dp"
-            android:layout_margin="10dp"
-            android:layout_marginTop="16dp"
-            android:fontFamily="sans-serif-condensed"
-            android:text="ADD"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/otfFoodName"
-            app:layout_constraintTop_toBottomOf="@+id/pbCaloriesTrackerBg" />
-
-        <TextView
-            android:id="@+id/tvProtein"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="24dp"
-            android:fontFamily="sans-serif-condensed"
-            android:text="Protein"
-            android:textColor="@color/primaryColorTransparent"
-            android:textSize="28sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/otfFoodName" />
-
-        <ProgressBar
-            android:id="@+id/pbProteinIntake"
-            style="@android:style/Widget.DeviceDefault.ProgressBar.Horizontal"
-            android:layout_width="234dp"
-            android:layout_height="15dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:indeterminate="false"
-            android:progress="50"
-            android:progressDrawable="@drawable/pb_horizontal_bg"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvProtein" />
-
-        <TextView
-            android:id="@+id/tvProteinIntake"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:fontFamily="sans-serif-condensed"
-            android:text="20/100g (50%)"
-            android:textColor="@color/primaryColorTransparent"
-            android:textStyle="italic"
-            app:layout_constraintBottom_toBottomOf="@+id/pbProteinIntake"
-            app:layout_constraintStart_toEndOf="@+id/pbProteinIntake"
-            app:layout_constraintTop_toTopOf="@+id/pbProteinIntake" />
-
-        <TextView
-            android:id="@+id/tvFat"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:fontFamily="sans-serif-condensed"
-            android:text="Fat"
-            android:textColor="@color/primaryColorTransparent"
-            android:textSize="28sp"
-            app:layout_constraintStart_toStartOf="@+id/pbProteinIntake"
-            app:layout_constraintTop_toBottomOf="@+id/pbProteinIntake" />
-
-        <ProgressBar
-            android:id="@+id/pbFatIntake"
-            style="@android:style/Widget.DeviceDefault.ProgressBar.Horizontal"
-            android:layout_width="234dp"
-            android:layout_height="15dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:indeterminate="false"
-            android:progress="70"
-            android:progressDrawable="@drawable/pb_horizontal_bg"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvFat" />
-
-        <TextView
-            android:id="@+id/tvFatIntake"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:fontFamily="sans-serif-condensed"
-            android:text="76/100g (70%)"
-            android:textColor="@color/primaryColorTransparent"
-            android:textStyle="italic"
-            app:layout_constraintBottom_toBottomOf="@+id/pbFatIntake"
-            app:layout_constraintStart_toEndOf="@+id/pbFatIntake"
-            app:layout_constraintTop_toTopOf="@+id/pbFatIntake" />
-
-        <TextView
-            android:id="@+id/tvCarbs"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:fontFamily="sans-serif-condensed"
-            android:text="Carbohydrate"
-            android:textColor="@color/primaryColorTransparent"
-            android:textSize="28sp"
-            app:layout_constraintStart_toStartOf="@+id/pbFatIntake"
-            app:layout_constraintTop_toBottomOf="@+id/pbFatIntake" />
-
-        <ProgressBar
-            android:id="@+id/pbCarbsIntake"
-            style="@android:style/Widget.DeviceDefault.ProgressBar.Horizontal"
-            android:layout_width="234dp"
-            android:layout_height="15dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:indeterminate="false"
-            android:progress="20"
-            android:progressDrawable="@drawable/pb_horizontal_bg"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvCarbs" />
-
-        <TextView
-            android:id="@+id/tvCarbsIntake"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:fontFamily="sans-serif-condensed"
-            android:text="12/100g (20%)"
-            android:textColor="@color/primaryColorTransparent"
-            android:textStyle="italic"
-            app:layout_constraintBottom_toBottomOf="@+id/pbCarbsIntake"
-            app:layout_constraintStart_toEndOf="@+id/pbCarbsIntake"
-            app:layout_constraintTop_toTopOf="@+id/pbCarbsIntake" />
-
-        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-            android:id="@+id/fabHistory"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end|bottom"
-            android:layout_marginTop="20dp"
-            android:backgroundTint="@color/primaryColor"
-            android:fontFamily="sans-serif-condensed"
-            android:text="History"
-            android:textColor="@android:color/white"
-            app:icon="@android:drawable/ic_menu_recent_history"
-            app:iconTint="@color/primaryTextColor"
-            app:layout_constraintEnd_toEndOf="@+id/btnAdd"
-            app:layout_constraintTop_toBottomOf="@+id/tvCarbsIntake" />
+            <ProgressBar
+                android:id="@+id/pbCaloriesTracker"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="342dp"
+                android:layout_height="241dp"
+                android:layout_marginTop="4dp"
+                android:indeterminateOnly="false"
+                android:max="120"
+                android:progress="66"
+                android:progressDrawable="@drawable/pb_circular_determinative"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/tvCaloriesIntake"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:text="100"
+                android:textColor="@color/primaryColorTransparent"
+                android:textSize="50sp"
+                app:layout_constraintBottom_toBottomOf="@+id/pbCaloriesTracker"
+                app:layout_constraintEnd_toEndOf="@+id/pbCaloriesTracker"
+                app:layout_constraintHorizontal_bias="0.496"
+                app:layout_constraintStart_toStartOf="@+id/pbCaloriesTracker"
+                app:layout_constraintTop_toTopOf="@+id/pbCaloriesTracker"
+                app:layout_constraintVertical_bias="0.441" />
+
+            <TextView
+                android:id="@+id/tvPercent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:text="%"
+                android:textColor="@color/primaryColorTransparent"
+                android:textSize="20sp"
+                app:layout_constraintStart_toEndOf="@+id/tvCaloriesIntake"
+                app:layout_constraintTop_toTopOf="@+id/tvCaloriesIntake" />
+
+
+            <TextView
+                android:id="@+id/tvCalories"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Calories"
+                android:textColor="@color/primaryColorTransparent"
+                android:textSize="28sp"
+                app:layout_constraintBottom_toBottomOf="@+id/pbCaloriesTracker"
+                app:layout_constraintEnd_toEndOf="@+id/pbCaloriesTracker"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="@+id/pbCaloriesTracker"
+                app:layout_constraintTop_toBottomOf="@+id/tvCaloriesIntake"
+                app:layout_constraintVertical_bias="0.813" />
+
+            <TextView
+                android:id="@+id/tvCaloriesCounter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="2000/2000kCal"
+                android:textColor="@color/primaryColorTransparent"
+                android:textSize="16sp"
+                android:textStyle="italic"
+                app:layout_constraintBottom_toTopOf="@+id/tvCalories"
+                app:layout_constraintEnd_toEndOf="@+id/tvCalories"
+                app:layout_constraintHorizontal_bias="0.571"
+                app:layout_constraintStart_toStartOf="@+id/tvCalories"
+                tools:ignore="TextContrastCheck" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/otfFoodName"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_margin="10dp"
+                android:hint="Food name"
+                app:layout_constraintEnd_toStartOf="@+id/btnAdd"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/pbCaloriesTracker">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="sans-serif-condensed" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/btnAdd"
+                android:layout_width="0dp"
+                android:layout_height="65dp"
+                android:layout_margin="10dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="ADD"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/otfFoodName"
+                app:layout_constraintTop_toBottomOf="@+id/pbCaloriesTrackerBg" />
+
+            <TextView
+                android:id="@+id/tvProtein"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Protein"
+                android:textColor="@color/primaryColorTransparent"
+                android:textSize="28sp"
+                app:layout_constraintStart_toStartOf="@+id/otfFoodName"
+                app:layout_constraintTop_toBottomOf="@+id/otfFoodName" />
+
+            <ProgressBar
+                android:id="@+id/pbProteinIntake"
+                style="@android:style/Widget.DeviceDefault.ProgressBar.Horizontal"
+                android:layout_width="234dp"
+                android:layout_height="15dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:indeterminate="false"
+                android:progress="50"
+                android:progressDrawable="@drawable/pb_horizontal_bg"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvProtein" />
+
+            <TextView
+                android:id="@+id/tvProteinIntake"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="20/100g (50%)"
+                android:textColor="@color/primaryColorTransparent"
+                android:textStyle="italic"
+                app:layout_constraintBottom_toBottomOf="@+id/pbProteinIntake"
+                app:layout_constraintStart_toEndOf="@+id/pbProteinIntake"
+                app:layout_constraintTop_toTopOf="@+id/pbProteinIntake" />
+
+            <TextView
+                android:id="@+id/tvFat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Fat"
+                android:textColor="@color/primaryColorTransparent"
+                android:textSize="28sp"
+                app:layout_constraintStart_toStartOf="@+id/pbProteinIntake"
+                app:layout_constraintTop_toBottomOf="@+id/pbProteinIntake" />
+
+            <ProgressBar
+                android:id="@+id/pbFatIntake"
+                style="@android:style/Widget.DeviceDefault.ProgressBar.Horizontal"
+                android:layout_width="234dp"
+                android:layout_height="15dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:indeterminate="false"
+                android:progress="70"
+                android:progressDrawable="@drawable/pb_horizontal_bg"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvFat" />
+
+            <TextView
+                android:id="@+id/tvFatIntake"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="76/100g (70%)"
+                android:textColor="@color/primaryColorTransparent"
+                android:textStyle="italic"
+                app:layout_constraintBottom_toBottomOf="@+id/pbFatIntake"
+                app:layout_constraintStart_toEndOf="@+id/pbFatIntake"
+                app:layout_constraintTop_toTopOf="@+id/pbFatIntake" />
+
+            <TextView
+                android:id="@+id/tvCarbs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Carbohydrate"
+                android:textColor="@color/primaryColorTransparent"
+                android:textSize="28sp"
+                app:layout_constraintStart_toStartOf="@+id/pbFatIntake"
+                app:layout_constraintTop_toBottomOf="@+id/pbFatIntake" />
+
+            <ProgressBar
+                android:id="@+id/pbCarbsIntake"
+                style="@android:style/Widget.DeviceDefault.ProgressBar.Horizontal"
+                android:layout_width="234dp"
+                android:layout_height="15dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:indeterminate="false"
+                android:progress="20"
+                android:progressDrawable="@drawable/pb_horizontal_bg"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvCarbs" />
+
+            <TextView
+                android:id="@+id/tvCarbsIntake"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="12/100g (20%)"
+                android:textColor="@color/primaryColorTransparent"
+                android:textStyle="italic"
+                app:layout_constraintBottom_toBottomOf="@+id/pbCarbsIntake"
+                app:layout_constraintStart_toEndOf="@+id/pbCarbsIntake"
+                app:layout_constraintTop_toTopOf="@+id/pbCarbsIntake" />
+
+            <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                android:id="@+id/fabHistory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|bottom"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="@color/primaryColor"
+                android:fontFamily="sans-serif-condensed"
+                android:text="History"
+                android:textColor="@android:color/white"
+                app:icon="@android:drawable/ic_menu_recent_history"
+                app:iconTint="@color/primaryTextColor"
+                app:layout_constraintEnd_toEndOf="@+id/btnAdd"
+                app:layout_constraintTop_toBottomOf="@+id/tvCarbsIntake" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </layout>

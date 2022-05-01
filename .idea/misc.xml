@@ -35,9 +35,10 @@
         <entry key="app/src/main/res/drawable/pb_horizontal_bg.xml" value="0.1465" />
         <entry key="app/src/main/res/drawable/spinner_background.xml" value="0.1055" />
         <entry key="app/src/main/res/font/.xml" value="0.2911458333333333" />
+        <entry key="app/src/main/res/layout/about_fragment.xml" value="0.30978260869565216" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.16259057971014493" />
         <entry key="app/src/main/res/layout/activity_user_info.xml" value="0.33" />
-        <entry key="app/src/main/res/layout/daily_fragment.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/daily_fragment.xml" value="0.5984251968503937" />
         <entry key="app/src/main/res/layout/stats_fragment.xml" value="0.17325227963525835" />
         <entry key="app/src/main/res/layout/water_fragment.xml" value="0.36951754385964913" />
       </map>

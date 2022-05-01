@@ -9,10 +9,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TabTestFinal">
         <activity
-            android:name=".UserInfoActivity"
+            android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".UserInfoActivity"
             android:exported="true">
 
 
