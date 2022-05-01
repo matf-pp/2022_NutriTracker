@@ -1,15 +1,26 @@
 package com.marko590.tabtestfinal
 
 import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import kotlinx.android.synthetic.main.activity_user_info.*
 
 class UserInfoActivity : AppCompatActivity() {
+
+    override fun onResume() {
+        super.onResume()
+        val sharedPref = getSharedPreferences("UserInfoPref", Context.MODE_PRIVATE)
+        if(sharedPref.contains("usrName")){
+            moveToSecondary()
+        }
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_info)
+
+
 
         // Creating spinner for activity level
         val listActivity = resources.getStringArray(R.array.activityLevel)
@@ -49,12 +60,12 @@ class UserInfoActivity : AppCompatActivity() {
 
         fun calculateNutrients(){
 
-            val height = sharedPref.getInt("usrHeight", 1)
-            val weight = sharedPref.getInt("usrWeight", 1)
-            val age = sharedPref.getInt("usrAge", 1)
-            val isWoman = sharedPref.getBoolean("isWoman", false)
-            val isMan = sharedPref.getBoolean("isMan", false)
-            val activityLevel = sharedPref.getString("activityLevel", null)
+            val height = itHeight.text.toString().toInt()
+            val weight = itWeight.text.toString().toInt()
+            val age = itAge.text.toString().toInt()
+            val isWoman = rbWoman.isChecked
+            val isMan = rbMan.isChecked
+            val activityLevel = sActivity.selectedItem.toString()
 
             // Calculating user BMR using Mifflin St Jeor Equation
             if(isMan) {
@@ -123,11 +134,13 @@ class UserInfoActivity : AppCompatActivity() {
                     putInt("carbsIntake", carbsIntake)
                     apply()
                 }
-
-                finish()
+                moveToSecondary()
             }
         }
-
-
+    }
+    private fun moveToSecondary(){
+        Intent(this, MainActivity::class.java).also{
+            startActivity(it)
+        }
     }
 }
