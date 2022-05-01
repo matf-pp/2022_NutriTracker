@@ -66,6 +66,13 @@ class WaterFragment : Fragment() {
 
         }
 
+        val stepsNumber = binding.txtSteps
+
+
+
+
+
+
 
         return binding.root
     }
