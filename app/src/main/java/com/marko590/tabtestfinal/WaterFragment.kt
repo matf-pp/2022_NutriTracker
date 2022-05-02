@@ -19,6 +19,7 @@ class WaterFragment : Fragment() {
         val binding = DataBindingUtil.inflate<WaterFragmentBinding>(inflater,
             R.layout.water_fragment,container,false)
 
+
         val progressBar = binding.pbWaterIntake
         val sharedPrefIntake = requireActivity().getSharedPreferences("mySharedPref", Activity.MODE_PRIVATE)
         val glassSize = resources.getStringArray(R.array.glassSize)
