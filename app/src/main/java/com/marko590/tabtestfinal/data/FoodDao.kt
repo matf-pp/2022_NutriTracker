@@ -13,4 +13,7 @@ interface FoodDao {
 
     @Query("SELECT * FROM food")
     fun readAllData(): LiveData<List<Food>>
+
+    @Query("SELECT * FROM food WHERE foodName = :name")
+    fun getByName(name: String): LiveData<Food>
 }

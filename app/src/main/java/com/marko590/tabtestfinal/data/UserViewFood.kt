@@ -24,4 +24,19 @@ class UserViewFood(application: Application): AndroidViewModel(application) {
             repository.addFood(food)
         }
     }
+
+    fun addDay(day:Day){
+        viewModelScope.launch(Dispatchers.IO){
+            repository.addDay(day)
+        }
+    }
+
+    fun getByName(name: String): LiveData<Food>{
+        var data: LiveData<Food>? = null
+        viewModelScope.launch(Dispatchers.IO){
+            data = repository.getByName(name)
+        }
+        return data as LiveData<Food>
+    }
+
 }

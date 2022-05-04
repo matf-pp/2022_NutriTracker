@@ -13,4 +13,5 @@ interface DayDao {
 
     @Query("SELECT * FROM days")
     fun readAllData(): LiveData<List<Day>>
+
 }

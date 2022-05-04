@@ -5,10 +5,14 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
+import androidx.lifecycle.ViewModelProvider
+import com.marko590.tabtestfinal.data.Food
+import com.marko590.tabtestfinal.data.UserViewFood
 import kotlinx.android.synthetic.main.activity_user_info.*
 
 class UserInfoActivity : AppCompatActivity() {
 
+    private lateinit var mUserViewModel : UserViewFood
     override fun onResume() {
         super.onResume()
         val sharedPref = getSharedPreferences("UserInfoPref", Context.MODE_PRIVATE)
@@ -137,7 +141,35 @@ class UserInfoActivity : AppCompatActivity() {
                 moveToSecondary()
             }
         }
+
+        mUserViewModel= ViewModelProvider(this)[UserViewFood::class.java]
+        mUserViewModel.addFood(Food(0, "Banana", 92f, 1.1f,0.33f ,22.84f))
+        mUserViewModel.addFood(Food(0, "Apple", 52f,0.03f, 0.17f, 13.8f))
+        mUserViewModel.addFood(Food(0, "Fries", 220f,3.4f, 5.48f, 25.55f))
+        mUserViewModel.addFood(Food(0, "Cabbage", 25f,1.28f, 0.1f,5.8f))
+        mUserViewModel.addFood(Food(0, "Onion", 40f,1.1f,0.1f,9.3f ))
+        mUserViewModel.addFood(Food(0, "Yogurt", 61f,3.5f, 3.3f, 4.7f ))
+        mUserViewModel.addFood(Food(0, "Milk", 64f, 3.3f, 3.8f, 4.7f))
+        mUserViewModel.addFood(Food(0, "Tomato", 19f,0.9f, 0.2f,3.9f))
+        mUserViewModel.addFood(Food(0, "Pork", 297f, 25.7f, 20.8f, 0f))
+        mUserViewModel.addFood(Food(0, "Chicken breast", 118f,22.5f, 2.62f,0f ))
+        mUserViewModel.addFood(Food(0, "Omelette", 167f, 11.2f, 12.1f,2.1f))
+        mUserViewModel.addFood(Food(0, "Salmon", 206f,22f,12f,0f))
+        mUserViewModel.addFood(Food(0, "Bread", 265f, 9f, 3.2f,49f ))
+        mUserViewModel.addFood(Food(0, "Donut", 452f, 4.9f, 25f, 51f ))
+        mUserViewModel.addFood(Food(0, "Cereals", 389f, 16.89f, 6.9f, 66.27f ))
+        mUserViewModel.addFood(Food(0, "Rice", 360f,6.61f,0.58f,79.34f))
+        mUserViewModel.addFood(Food(0, "Pizza", 266f, 11f, 10f,33f ))
+        mUserViewModel.addFood(Food(0, "Spaghetti", 157f, 6f, 0.9f, 31f ))
+        mUserViewModel.addFood(Food(0, "Chocolate", 545f, 4.9f, 31f, 61f ))
+        mUserViewModel.addFood(Food(0, "Ice cream", 207f, 3.5f, 11f,24f))
+        mUserViewModel.addFood(Food(0, "Coca Cola", 44f,0f, 0f, 12f))
+        mUserViewModel.addFood(Food(0, "Red wine",85f, 0.1f, 0f, 2.6f ))
+
     }
+
+
+
     private fun moveToSecondary(){
         Intent(this, MainActivity::class.java).also{
             startActivity(it)

@@ -1,7 +1,6 @@
 package com.marko590.tabtestfinal.data
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 
 class AppRepository(private val foodDao: FoodDao, private val dayDao: DayDao) {
 
@@ -15,5 +14,10 @@ class AppRepository(private val foodDao: FoodDao, private val dayDao: DayDao) {
     suspend fun addDay(day: Day){
         dayDao.addDay(day)
     }
+
+    suspend fun getByName(name: String): LiveData<Food>{
+        return foodDao.getByName(name)
+    }
+
 
 }

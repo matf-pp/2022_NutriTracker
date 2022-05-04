@@ -109,6 +109,7 @@
                 android:layout_width="0dp"
                 android:layout_height="60dp"
                 android:layout_margin="10dp"
+                android:layout_marginTop="20dp"
                 android:hint="Food name"
                 app:layout_constraintEnd_toStartOf="@+id/btnAdd"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -116,6 +117,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/pbCaloriesTracker">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtFoodName"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:fontFamily="sans-serif-condensed" />
@@ -139,7 +141,7 @@
                 android:id="@+id/tvProtein"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="20dp"
                 android:fontFamily="sans-serif-condensed"
                 android:text="Protein"
                 android:textColor="@color/primaryColorTransparent"
@@ -248,21 +250,6 @@
                 app:layout_constraintBottom_toBottomOf="@+id/pbCarbsIntake"
                 app:layout_constraintStart_toEndOf="@+id/pbCarbsIntake"
                 app:layout_constraintTop_toTopOf="@+id/pbCarbsIntake" />
-
-            <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-                android:id="@+id/fabHistory"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end|bottom"
-                android:layout_marginTop="20dp"
-                android:backgroundTint="@color/primaryColor"
-                android:fontFamily="sans-serif-condensed"
-                android:text="History"
-                android:textColor="@android:color/white"
-                app:icon="@android:drawable/ic_menu_recent_history"
-                app:iconTint="@color/primaryTextColor"
-                app:layout_constraintEnd_toEndOf="@+id/btnAdd"
-                app:layout_constraintTop_toBottomOf="@+id/tvCarbsIntake" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

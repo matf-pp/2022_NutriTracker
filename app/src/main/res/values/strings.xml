@@ -41,8 +41,8 @@
         <item>6 hr</item>
     </string-array>
 
-    <string name="kCalProgress">%1d/%2dkCal</string>
-    <string name="nutrientsProgress">%1d/%2dg (%3d%%)</string>
+    <string name="kCalProgress">%1.2f/%2dkCal</string>
+    <string name="nutrientsProgress">%1.2f/%2dg (%3d%%)</string>
     <string name="stepsProgress">%1d/%2d</string>
     <string name="cupsLeft">%1d cups left!</string>
 </resources>

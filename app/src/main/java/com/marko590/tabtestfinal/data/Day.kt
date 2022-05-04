@@ -8,8 +8,10 @@ data class Day(
     @PrimaryKey(autoGenerate = true)
     val id: Int,
     val date: String,
-    val calorie: Int,
-    val steps: Int
+    val calorie: Float,
+    val protein: Float,
+    val fat: Float,
+    val carbs: Float
 )
 
 
