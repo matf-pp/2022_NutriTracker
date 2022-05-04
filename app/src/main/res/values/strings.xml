@@ -33,6 +33,16 @@
         <item>750 ml</item>
     </string-array>
 
+    <string-array name="time">
+        <item>1 hr</item>
+        <item>2 hr</item>
+        <item>3 hr</item>
+        <item>4 hr</item>
+        <item>6 hr</item>
+    </string-array>
+
     <string name="kCalProgress">%1d/%2dkCal</string>
     <string name="nutrientsProgress">%1d/%2dg (%3d%%)</string>
+    <string name="stepsProgress">%1d/%2d</string>
+    <string name="cupsLeft">%1d cups left!</string>
 </resources>

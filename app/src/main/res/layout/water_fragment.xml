@@ -30,7 +30,7 @@
                 android:id="@+id/sGlasses"
                 android:layout_width="178dp"
                 android:layout_height="33dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="20dp"
                 android:animationCache="false"
                 android:backgroundTint="@color/primaryColor"
                 android:visibility="visible"
@@ -81,28 +81,17 @@
                 app:layout_constraintVertical_bias="1.0" />
 
 
-            <Button
-                android:id="@+id/btnReminder"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="28dp"
-                android:text="Remind me!"
-                app:layout_constraintEnd_toEndOf="@+id/tvWaterProgress"
-                app:layout_constraintHorizontal_bias="0.728"
-                app:layout_constraintStart_toStartOf="@+id/pbWaterIntake"
-                app:layout_constraintTop_toBottomOf="@+id/pbWaterIntake" />
-
             <TextView
                 android:id="@+id/tvSteps"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="72dp"
                 android:fontFamily="sans-serif-condensed"
                 android:text="Steps"
                 android:textColor="@color/primaryColorTransparent"
                 android:textSize="28sp"
                 app:layout_constraintStart_toStartOf="@+id/pbWaterIntake"
-                app:layout_constraintTop_toBottomOf="@+id/btnReminder" />
+                app:layout_constraintTop_toBottomOf="@+id/pbWaterIntake" />
 
             <TextView
                 android:id="@+id/tvStepsProgress"
@@ -169,7 +158,7 @@
                 android:id="@+id/otfStepGoals"
                 android:layout_width="178dp"
                 android:layout_height="55dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="20dp"
                 android:hint="Set a goal"
                 app:layout_constraintStart_toStartOf="@+id/tvSteps"
                 app:layout_constraintTop_toBottomOf="@+id/tvSteps">
@@ -211,6 +200,31 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/otfStepGoals" />
 
+            <Button
+                android:id="@+id/btnOk"
+                android:layout_width="57dp"
+                android:layout_height="51dp"
+                android:layout_marginStart="24dp"
+                android:text="OK"
+                app:layout_constraintBottom_toBottomOf="@+id/otfStepGoals"
+                app:layout_constraintStart_toEndOf="@+id/otfStepGoals"
+                app:layout_constraintTop_toTopOf="@+id/otfStepGoals"
+                app:layout_constraintVertical_bias="0.777" />
+
+            <TextView
+                android:id="@+id/cupsLeft"
+                android:layout_width="153dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="10dp"
+                android:text=""
+                android:textAlignment="viewStart"
+                android:textColor="@color/primaryColorTransparent"
+                android:textSize="18sp"
+                android:textStyle="bold|italic"
+                app:layout_constraintBottom_toTopOf="@+id/tvSteps"
+                app:layout_constraintStart_toStartOf="@+id/pbWaterIntake"
+                app:layout_constraintTop_toBottomOf="@+id/pbWaterIntake"
+                app:layout_constraintVertical_bias="0.0" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
