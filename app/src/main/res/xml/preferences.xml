@@ -5,12 +5,7 @@
 
         android:title="User info"
         >
-        <SwitchPreference
 
-            android:defaultValue="true"
-            android:title="Settings option"
-            android:key="example_switch"
-            android:summary="Turn this option on or off" />
         <EditTextPreference
 
             android:key="user_weight"
@@ -35,18 +30,9 @@
             android:dialogTitle="Change age"
             android:dialogMessage="Input your new age please..."
             />
-    </PreferenceCategory>
 
-    <PreferenceCategory
-        android:title="App preferences"
-        >
-        <DropDownPreference
-            android:key="reminder"
-            android:title="Notification Frequency"
-            android:summary="Change how often you want to be reminded"
-            android:dialogTitle="Reminder Frequency"
-            android:dialogMessage="Set how often you want to be reminded to drink water"
-            />
+
+
 
     </PreferenceCategory>
 </PreferenceScreen>
