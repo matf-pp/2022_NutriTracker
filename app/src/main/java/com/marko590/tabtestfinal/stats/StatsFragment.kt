@@ -22,6 +22,7 @@ import com.marko590.tabtestfinal.data.AppRepository
 import com.marko590.tabtestfinal.data.Food
 import com.marko590.tabtestfinal.data.UserViewFood
 import com.marko590.tabtestfinal.databinding.StatsFragmentBinding
+import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
 import java.text.SimpleDateFormat
@@ -56,19 +57,11 @@ class StatsFragment : androidx.fragment.app.Fragment()  {
 
 
         //Show popup window on button click
-        var data : String?=null
+
         val calorieMonthButton = binding.button1
-        calorieMonthButton.setOnClickListener {v -> showPopupWindow(inflater,calorieChart!!,view as View,month)
 
 
-            mUserViewModel.readAllFood.observe(viewLifecycleOwner, androidx.lifecycle.Observer {
-
-                data=it.toString()
-            })
-
-
-        binding.calorieChartText.text=data
-}
+        calorieMonthButton.setOnClickListener {v -> showPopupWindow(inflater,calorieChart!!,view as View,month)}
 
 
 

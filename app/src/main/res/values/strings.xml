@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">NutriTracker</string>
     <string name="kCalIntake">2000kCal</string>
+    <string name="tamaraAbout"><a href="https://github.com/TamaraS1604">Tamara Stojanović</a></string>
+    <string name="jelenaAbout"><a href="https://github.com/jelena3160">Jelena Lazović</a></string>
+    <string name="markoAbout"><a href="https://github.com/Marko590">Marko Bojković</a></string>
 
     <string-array name="months">
         <item>January</item>

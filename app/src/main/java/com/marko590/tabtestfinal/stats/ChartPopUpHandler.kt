@@ -55,9 +55,11 @@ class ChartPopUpHandler(private val popupWindow: PopupWindow,
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             picker.textSize = 75f
         }
+        currentChoice = month
         popupView.findViewById<NumberPicker>(R.id.picker1).setOnValueChangedListener { picker, oldVal, newVal ->
             currentChoice = newVal - 1
         }
+
         picker.elevation =
             popupView!!.resources.getDimension(com.google.android.material.R.dimen.m3_menu_elevation)
         picker.displayedValues = months

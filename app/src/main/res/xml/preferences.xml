@@ -19,6 +19,22 @@
             android:dialogTitle="Change weight"
             android:dialogMessage="Input your new weight please..."
             />
+        <EditTextPreference
+
+            android:key="user_height"
+            android:title="Edit your height"
+            android:summary="Change your height"
+            android:dialogTitle="Change height"
+            android:dialogMessage="Input your new height please..."
+            />
+        <EditTextPreference
+
+            android:key="user_age"
+            android:title="Edit your age"
+            android:summary="Change your age"
+            android:dialogTitle="Change age"
+            android:dialogMessage="Input your new age please..."
+            />
     </PreferenceCategory>
 
     <PreferenceCategory

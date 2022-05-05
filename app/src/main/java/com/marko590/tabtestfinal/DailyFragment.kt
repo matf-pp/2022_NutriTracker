@@ -99,10 +99,43 @@ class DailyFragment : Fragment() {
             for(food in data!!){
                 if(food.name == foodName){
                     get()
-                    calorieProgress += food.calorie
-                    proteinProgress += food.protein
-                    fatProgress += food.fat
-                    carbsProgress += food.carbs
+
+
+                    if(calculatePercentage(calorieProgress, calorieIntake)<100) {
+                        calorieProgress += food.calorie
+                    }
+
+                    if(calculatePercentage(calorieProgress, calorieIntake)>100)
+                    {
+                        pbCaloriesTracker.progress=100
+                        calorieProgress=calorieIntake.toFloat()
+                    }
+
+
+                    if(calculatePercentage(proteinProgress, proteinIntake)<100) {
+                        proteinProgress += food.protein
+                    }
+                    if(calculatePercentage(proteinProgress, proteinIntake)>100){
+                        pbProteinIntake.progress=100
+                        proteinProgress=proteinIntake.toFloat()
+                    }
+
+                    if(calculatePercentage(fatProgress, fatIntake)<100) {
+                        fatProgress += food.fat
+                    }
+                    if(calculatePercentage(fatProgress, fatIntake)>100){
+                        pbFatIntake.progress=100
+                        fatProgress=fatIntake.toFloat()
+                    }
+
+                    if(calculatePercentage(carbsProgress, carbsIntake)<100) {
+                        carbsProgress += food.carbs
+                    }
+                    if(calculatePercentage(carbsProgress, carbsIntake)>100){
+                        pbCarbsIntake.progress=100
+                        carbsProgress=carbsIntake.toFloat()
+                    }
+
                     editorProgress.apply {
                         putFloat("calorieProgress", calorieProgress)
                         putFloat("proteinProgress", proteinProgress)

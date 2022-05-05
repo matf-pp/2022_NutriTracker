@@ -51,7 +51,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 1 -> {
                     tab.text = "Water"
-                    tab.icon = ResourcesCompat.getDrawable(resources,R.drawable.ic_baseline_close_24,theme)
+                    tab.icon = ResourcesCompat.getDrawable(resources,R.drawable.ic_ceed60763b5891b3a88277b7b40330c4,theme)
 
                 }
                 2 -> {
