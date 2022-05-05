@@ -16,8 +16,8 @@ Android aplikacija za praćenje i vođenje evidencije unosa hrane, podsetnik za 
 Aplikacija je u potpunosti napisana u [Kotlin-u](https://kotlinlang.org/) u razvojnom okruženju [Android Studio](https://developer.android.com/studio).
 
 Spoljne biblioteke i servisi korišćeni prilikom izrade aplikacije: 
-+ [MPAndroidChart](https://github.com/PhilJay/MPAndroidChart) - za prikazivanje grafikona
-+ [Material Design Color Tool](https://material.io/resources/color/#!/) - za odabir palete boja za aplikaciju
++ [MPAndroidChart](https://github.com/PhilJay/MPAndroidChart) - biblioteka za prikazivanje grafikona
++ [Material Design Color Tool](https://material.io/resources/color/#!/) - alatka za odabir palete boja za aplikaciju
 + [AndroidX](https://github.com/androidx/androidx) 
 
 ## Upotreba
