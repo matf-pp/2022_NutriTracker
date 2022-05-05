@@ -22,7 +22,7 @@ Spoljne biblioteke i servisi korišćeni prilikom izrade aplikacije:
 
 ## Upotreba
 
-Skinite aplikaciju [ovde](), i uključite opciju za instaliranje aplikacija sa nepoznatih izvora ukoliko nije uključena.
+Skinite aplikaciju [ovde](https://github.com/matf-pp/2022_NutriTracker/raw/main/nutritracker.apk), i uključite opciju za instaliranje aplikacija sa nepoznatih izvora ukoliko nije uključena.
 
 ---
 
