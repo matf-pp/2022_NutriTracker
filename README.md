@@ -1,5 +1,7 @@
 # 2022_NutriTracker
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/94c2bc81da7348ad9cc277636bdef27e)](https://app.codacy.com/gh/matf-pp/2022_NutriTracker?utm_source=github.com&utm_medium=referral&utm_content=matf-pp/2022_NutriTracker&utm_campaign=Badge_Grade_Settings)
+
 # O aplikaciji
 Android aplikacija za praćenje i vođenje evidencije unosa hrane, podsetnik za unos vode, pedometar.
 
