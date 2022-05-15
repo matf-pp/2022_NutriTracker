@@ -23,29 +23,29 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val tab_layout:TabLayout =findViewById(R.id.tab_layout)
+        val tabLayout:TabLayout =findViewById(R.id.tab_layout)
 
 
-        tab_layout.setSelectedTabIndicatorColor(Color.WHITE)
+        tabLayout.setSelectedTabIndicatorColor(Color.WHITE)
      //   tab_layout.setBackgroundColor(ContextCompat.getColor(this, com.google.android.material.R.color.design_dark_default_color_primary_dark))
-        tab_layout.tabTextColors = ContextCompat.getColorStateList(this, android.R.color.white)
+        tabLayout.tabTextColors = ContextCompat.getColorStateList(this, android.R.color.white)
 
         val numberOfTabs = 3
 
-        tab_layout.tabMode = TabLayout.MODE_FIXED
+        tabLayout.tabMode = TabLayout.MODE_FIXED
 
-        tab_layout.isInlineLabel = true
+        tabLayout.isInlineLabel = true
 
-        val tabs_viewpager : ViewPager2 =findViewById(R.id.tabs_viewpager)
+        val tabsViewpager : ViewPager2 =findViewById(R.id.tabs_viewpager)
         val adapter = TabsPagerAdapter(supportFragmentManager, lifecycle, numberOfTabs)
-        tabs_viewpager.adapter = adapter
+        tabsViewpager.adapter = adapter
 
-        tabs_viewpager.isUserInputEnabled = true
+        tabsViewpager.isUserInputEnabled = true
 
-        TabLayoutMediator(tab_layout, tabs_viewpager) { tab, position ->
+        TabLayoutMediator(tabLayout, tabsViewpager) { tab, position ->
             when (position) {
                 0 -> {
-                    tab.icon = ResourcesCompat.getDrawable(getResources(), R.drawable.ic_baseline_today_24, theme)
+                    tab.icon = ResourcesCompat.getDrawable(resources, R.drawable.ic_baseline_today_24, theme)
                     tab.text = "Today"
 
                 }
@@ -56,7 +56,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 2 -> {
                     tab.text = "Stats"
-                    tab.icon= ResourcesCompat.getDrawable(getResources(), R.drawable.ic_baseline_bar_chart_24, theme)
+                    tab.icon= ResourcesCompat.getDrawable(resources, R.drawable.ic_baseline_bar_chart_24, theme)
                 }
 
             }
@@ -76,19 +76,19 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId){
+        when(item.itemId) {
             R.id.action_settings -> {
                 val intent = Intent(this, SettingsActivity::class.java)
                 startActivity(intent)
+                Toast.makeText(this, "Settings selected", Toast.LENGTH_SHORT).show()
                 return true
-                Toast.makeText(this,"Settings selected",Toast.LENGTH_SHORT).show()
             }
-            R.id.about ->{
+            R.id.about -> {
                 val intent = Intent(this, AboutActivity::class.java)
                 startActivity(intent)
+                Toast.makeText(this, "About selected", Toast.LENGTH_SHORT).show()
                 return true
-                Toast.makeText(this,"Settings selected",Toast.LENGTH_SHORT).show()
-                Toast.makeText(this,"About selected",Toast.LENGTH_SHORT).show()}
+            }
         }
         return super.onOptionsItemSelected(item)
     }

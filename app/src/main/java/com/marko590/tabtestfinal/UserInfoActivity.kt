@@ -14,11 +14,11 @@ class UserInfoActivity : AppCompatActivity() {
 
     private lateinit var mUserViewModel : UserViewFood
 
-    var bmr = 0.0
-    var calorieIntake = 0
-    var proteinIntake = 0
-    var fatIntake = 0
-    var carbsIntake = 0
+    private var bmr = 0.0
+    private var calorieIntake = 0
+    private var proteinIntake = 0
+    private var fatIntake = 0
+    private var carbsIntake = 0
 
     private fun addDatabase(){
         mUserViewModel= ViewModelProvider(this)[UserViewFood::class.java]
@@ -158,10 +158,10 @@ class UserInfoActivity : AppCompatActivity() {
 
                     calculateNutrients()
 
-                    putInt("calorieIntake", calorieIntake)
-                    putInt("proteinIntake", proteinIntake)
-                    putInt("fatIntake", fatIntake)
-                    putInt("carbsIntake", carbsIntake)
+                    putInt("spCalorieIntake", calorieIntake)
+                    putInt("spProteinIntake", proteinIntake)
+                    putInt("spFatIntake", fatIntake)
+                    putInt("spCarbsIntake", carbsIntake)
                     apply()
                 }
                 moveToSecondary()
