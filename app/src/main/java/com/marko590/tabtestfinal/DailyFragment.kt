@@ -46,19 +46,19 @@ class DailyFragment : Fragment() {
             R.layout.daily_fragment,container,false)
 
         val sharedPrefIntake = requireContext().getSharedPreferences("UserInfoPref", Context.MODE_PRIVATE)
-        calorieIntake = sharedPrefIntake.getInt("spCalorieIntake", 1)
-        proteinIntake = sharedPrefIntake.getInt("spProteinIntake", 1)
-        fatIntake = sharedPrefIntake.getInt("spFatIntake", 1)
-        carbsIntake = sharedPrefIntake.getInt("spCarbsIntake", 1)
+        calorieIntake = sharedPrefIntake.getInt("calorieRcm", 1)
+        proteinIntake = sharedPrefIntake.getInt("proteinRcm", 1)
+        fatIntake = sharedPrefIntake.getInt("fatRcm", 1)
+        carbsIntake = sharedPrefIntake.getInt("carbsRcm", 1)
 
         val sharedPrefProgress = requireContext().getSharedPreferences("NutrientsPref", Context.MODE_PRIVATE)
         val editorProgress = sharedPrefProgress.edit()
 
         fun get(){
-            calorieProgress = sharedPrefProgress.getFloat("spCalorieProgress", 0f)
-            proteinProgress = sharedPrefProgress.getFloat("spProteinProgress", 0f)
-            fatProgress = sharedPrefProgress.getFloat("spFatProgress", 0f)
-            carbsProgress = sharedPrefProgress.getFloat("spCarbsProgress", 0f)
+            calorieProgress = sharedPrefProgress.getFloat("calorieToday", 0f)
+            proteinProgress = sharedPrefProgress.getFloat("proteinToday", 0f)
+            fatProgress = sharedPrefProgress.getFloat("fatToday", 0f)
+            carbsProgress = sharedPrefProgress.getFloat("carbsToday", 0f)
         }
 
         // Setting the values of text views according to current progress
@@ -121,10 +121,10 @@ class DailyFragment : Fragment() {
                             carbsProgress = carbsIntake.toFloat()
                     }
                     editorProgress.apply {
-                        putFloat("spCalorieProgress", calorieProgress)
-                        putFloat("spProteinProgress", proteinProgress)
-                        putFloat("spFatProgress", fatProgress)
-                        putFloat("spCarbsProgress", carbsProgress)
+                        putFloat("calorieToday", calorieProgress)
+                        putFloat("proteinToday", proteinProgress)
+                        putFloat("fatToday", fatProgress)
+                        putFloat("carbsToday", carbsProgress)
                         apply()
                     }
                     get()
@@ -138,25 +138,25 @@ class DailyFragment : Fragment() {
         val editorStorage = sharedPrefStorage.edit()
 
         val currDateFormatted = getCurrentDate()
-        val today = sharedPrefStorage.getString("spDateToday", null)
+        val today = sharedPrefStorage.getString("date", null)
 
         if(today == null){
             editorStorage.apply{
-                putString("spDateToday", currDateFormatted)
+                putString("date", currDateFormatted)
                 apply()
             }
         } else if(currDateFormatted != today){
             editorStorage.apply {
-                putString("spDateToday", currDateFormatted)
+                putString("date", currDateFormatted)
                 get()
                 mUserViewModel.addDay(Day(0,today, calorieProgress, proteinProgress, fatProgress, carbsProgress))
                 apply()
             }
             editorProgress.apply {
-                putFloat("spCalorieProgress", 0f)
-                putFloat("spProteinProgress", 0f)
-                putFloat("spFatProgress", 0f)
-                putFloat("spCarbsProgress", 0f)
+                putFloat("calorieToday", 0f)
+                putFloat("proteinToday", 0f)
+                putFloat("fatToday", 0f)
+                putFloat("carbsToday", 0f)
                 apply()
                 get()
                 text()

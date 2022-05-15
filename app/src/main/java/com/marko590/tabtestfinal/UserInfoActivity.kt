@@ -158,10 +158,10 @@ class UserInfoActivity : AppCompatActivity() {
 
                     calculateNutrients()
 
-                    putInt("spCalorieIntake", calorieIntake)
-                    putInt("spProteinIntake", proteinIntake)
-                    putInt("spFatIntake", fatIntake)
-                    putInt("spCarbsIntake", carbsIntake)
+                    putInt("calorieRcm", calorieIntake)
+                    putInt("proteinRcm", proteinIntake)
+                    putInt("fatRcm", fatIntake)
+                    putInt("carbsRcm", carbsIntake)
                     apply()
                 }
                 moveToSecondary()
