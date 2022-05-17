@@ -44,5 +44,3 @@ Skinite aplikaciju [ovde](https://github.com/matf-pp/2022_NutriTracker/raw/main/
 Tamara Stojanović - tamaras.2000@gmail.com
 Jelena Lazović - jelena3160@gmail.com
 Marko Bojković - marko.bojkovic00@outlook.com
-
-
