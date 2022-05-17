@@ -7,20 +7,20 @@ Android aplikacija za praćenje i vođenje evidencije unosa hrane, podsetnik za 
 
 ## Mogućnosti aplikacije
 
-  + Određivanje optimalnog unosa kalorija, proteina, masti i ugljenih hidrata
-  + Praćenje unosa nutrijenata
-  + Praćenje dnevnog unosa vode
-  + Brojanje koraka
-  + Ispisivanje unosa hrane i broja koraka na grafikonima
++ Određivanje optimalnog unosa kalorija, proteina, masti i ugljenih hidrata
++ Praćenje unosa nutrijenata
++ Praćenje dnevnog unosa vode
++ Brojanje koraka
++ Ispisivanje unosa hrane i broja koraka na grafikonima
 
 ## Korišćene tehnologije
 
 Aplikacija je u potpunosti napisana u [Kotlin-u](https://kotlinlang.org/) u razvojnom okruženju [Android Studio](https://developer.android.com/studio).
 
 Spoljne biblioteke i servisi korišćeni prilikom izrade aplikacije: 
-  + [MPAndroidChart](https://github.com/PhilJay/MPAndroidChart) - biblioteka za prikazivanje grafikona
-  + [Material Design Color Tool](https://material.io/resources/color/#!/) - alatka za odabir palete boja za aplikaciju
-  + [AndroidX](https://github.com/androidx/androidx) 
++ [MPAndroidChart](https://github.com/PhilJay/MPAndroidChart) - biblioteka za prikazivanje grafikona
++ [Material Design Color Tool](https://material.io/resources/color/#!/) - alatka za odabir palete boja za aplikaciju
++ [AndroidX](https://github.com/androidx/androidx) 
 
 ## Upotreba
 
@@ -38,3 +38,11 @@ Skinite aplikaciju [ovde](https://github.com/matf-pp/2022_NutriTracker/raw/main/
 ![image](https://user-images.githubusercontent.com/62253006/166946378-c9a078a0-cfb3-47df-a8b0-057acd1f03f2.png)
 
 ---
+
+## O autorima
+
+Tamara Stojanović - tamaras.2000@gmail.com
+Jelena Lazović - jelena3160@gmail.com
+Marko Bojković - marko.bojkovic00@outlook.com
+
+
